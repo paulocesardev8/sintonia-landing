@@ -2408,7 +2408,7 @@
               <span class="price-amount-main">A partir de R$ 1.500/mês</span>
               <span class="price-amount-sub">Mínimo de investimento em mídia: R$ 1.500/mês</span>
             </div>
-            <a class="btn btn-secondary btn-block" href="#contato">
+            <a class="btn btn-secondary btn-block" href="#contato" data-whats-msg="Oi Paulo, vim pelo seu site. Quero conversar sobre gestão de tráfego pro meu negócio." aria-label="Quero diagnóstico gratuito — abre WhatsApp com mensagem sobre gestão de tráfego">
               Quero diagnóstico gratuito
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
             </a>
@@ -2434,7 +2434,7 @@
               <span class="price-amount-main">10x de R$ 34,60</span>
               <span class="price-amount-sub">ou R$ 346 à vista</span>
             </div>
-            <a class="btn btn-primary btn-block" href="#contato">
+            <a class="btn btn-primary btn-block" href="#contato" data-whats-msg="Oi Paulo, vim pelo seu site. Quero saber mais sobre a turma em grupo de tráfego pago." aria-label="Garantir minha vaga — abre WhatsApp com mensagem sobre a turma em grupo">
               Garantir minha vaga
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
             </a>
@@ -2460,7 +2460,7 @@
               <span class="price-amount-main">R$ 445/mês</span>
               <span class="price-amount-sub">ou R$ 1.335 à vista</span>
             </div>
-            <a class="btn btn-secondary btn-block" href="#contato">
+            <a class="btn btn-secondary btn-block" href="#contato" data-whats-msg="Oi Paulo, vim pelo seu site. Quero saber mais sobre a aula particular de tráfego pago." aria-label="Quero conversar — abre WhatsApp com mensagem sobre a aula particular">
               Quero conversar
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
             </a>
@@ -2728,10 +2728,19 @@
         return 'https://wa.me/' + WHATS_NUMBER + '?text=' + encodeURIComponent(message);
       }
 
-      // Aplica o link em todos os CTAs que apontam pra #contato como ação direta
+      // CTAs principais (mensagem genérica): hero, sticky mobile, CTA final
       var whatsLinks = document.querySelectorAll('#ctaWhats, #stickyCta');
       whatsLinks.forEach(function (el) {
         el.href = buildWhatsUrl(DEFAULT_MSG);
+        el.target = '_blank';
+        el.rel = 'noopener';
+      });
+
+      // CTAs com mensagem personalizada (cards de Investimento e qualquer outro)
+      var personalizedLinks = document.querySelectorAll('[data-whats-msg]');
+      personalizedLinks.forEach(function (el) {
+        var msg = el.getAttribute('data-whats-msg') || DEFAULT_MSG;
+        el.href = buildWhatsUrl(msg);
         el.target = '_blank';
         el.rel = 'noopener';
       });
