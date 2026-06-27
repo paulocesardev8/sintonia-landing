@@ -1,0 +1,2837 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0A0A0B" />
+  <meta name="description" content="Gestão de tráfego pago, mentoria individual e turmas em grupo com método, transparência e infraestrutura técnica de verdade. Sintonia Solutions — Paulo Cesar." />
+  <meta property="og:title" content="Sintonia Solutions — Tráfego pago, mentoria e turmas | Paulo Cesar" />
+  <meta property="og:description" content="Gestão de campanhas, mentoria individual e turmas em grupo com método, transparência e infraestrutura técnica de verdade." />
+  <meta property="og:type" content="website" />
+  <title>Sintonia Solutions — Tráfego pago, mentoria e turmas | Paulo Cesar</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       TOKENS
+       ============================================================ */
+    :root {
+      /* Cores principais */
+      --orange-sintonia: #E8621A;
+      --orange-bright: #FF6208;
+      --raspberry-deep: #C30147;
+
+      /* Gradientes */
+      --gradient-primary: linear-gradient(135deg, #C30147 0%, #E8621A 55%, #FF6208 100%);
+      --gradient-cta: linear-gradient(135deg, #E8621A 0%, #FF6208 100%);
+      --gradient-surface: linear-gradient(180deg, rgba(232, 98, 26, 0.08) 0%, rgba(0, 0, 0, 0) 100%);
+      --gradient-glow: radial-gradient(ellipse at top, rgba(232, 98, 26, 0.25), transparent 70%);
+      --gradient-card: linear-gradient(180deg, #1F2123 0%, #0A0A0B 100%);
+      --gradient-card-premium: linear-gradient(135deg, rgba(195, 1, 71, 0.08) 0%, rgba(232, 98, 26, 0.12) 100%);
+
+      /* Neutras */
+      --carbon: #0A0A0B;
+      --pure-black: #000000;
+      --deep-gray: #1F2123;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --white: #FFFFFF;
+      --smoke: #E5E5E5;
+      --muted-gray: #71717A;
+
+      /* Funcionais */
+      --success: #22C55E;
+      --warning: #F59E0B;
+      --error: #EF4444;
+      --info: #3B82F6;
+
+      /* Raios */
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --radius-2xl: 24px;
+      --radius-3xl: 32px;
+      --radius-full: 9999px;
+
+      /* Sombras */
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+      --shadow-glow: 0 8px 24px rgba(232, 98, 26, 0.35);
+      --shadow-glow-strong: 0 16px 48px rgba(232, 98, 26, 0.5);
+      --shadow-inner-glow: inset 0 0 60px rgba(232, 98, 26, 0.08);
+
+      /* Tipografia */
+      --font-display: 'Space Grotesk', 'Inter Display', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Geist Mono', ui-monospace, monospace;
+
+      /* Container */
+      --container-max: 1280px;
+      --container-px: 24px;
+    }
+
+    @media (min-width: 1024px) {
+      :root {
+        --container-px: 48px;
+      }
+    }
+
+    /* ============================================================
+       RESET
+       ============================================================ */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--smoke);
+      background-color: var(--carbon);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    @media (min-width: 768px) {
+      body { font-size: 16px; }
+    }
+
+    img,
+    svg {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--orange-sintonia);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ============================================================
+       UTILS
+       ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-inline: auto;
+      padding-inline: var(--container-px);
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: var(--orange-sintonia);
+      color: var(--white);
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      z-index: 200;
+      transition: top 200ms ease;
+    }
+
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    /* Tipografia tokens */
+    .display-xl {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw + 1rem, 3.75rem); /* 32 → 60 */
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      text-wrap: balance;
+    }
+
+    .display-lg {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 2.5vw + 1rem, 3rem); /* 28 → 48 */
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      text-wrap: balance;
+    }
+
+    .h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 1.5vw + 1rem, 2.25rem); /* 24 → 36 */
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      text-wrap: balance;
+    }
+
+    .h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 1vw + 0.75rem, 1.625rem); /* 20 → 26 */
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      text-wrap: balance;
+    }
+
+    .h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 1vw + 1rem, 1.75rem); /* 20 → 28 */
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: var(--white);
+    }
+
+    .h4 {
+      font-family: var(--font-display);
+      font-size: clamp(1.0625rem, 0.5vw + 0.875rem, 1.25rem); /* 17 → 20 */
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--white);
+    }
+
+    .body-lg {
+      font-size: clamp(1rem, 0.5vw + 0.875rem, 1.125rem); /* 16 → 18 */
+      line-height: 1.6;
+      color: var(--smoke);
+      max-width: 65ch;
+    }
+
+    .body {
+      font-size: clamp(0.9375rem, 0.25vw + 0.875rem, 1rem); /* 15 → 16 */
+      line-height: 1.6;
+      color: var(--smoke);
+      max-width: 65ch;
+    }
+
+    .body-sm {
+      font-size: clamp(0.8125rem, 0.15vw + 0.75rem, 0.875rem); /* 13 → 14 */
+      line-height: 1.5;
+      color: var(--smoke);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--orange-sintonia);
+      background: rgba(232, 98, 26, 0.08);
+      border: 1px solid rgba(232, 98, 26, 0.2);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ============================================================
+       BOTÕES
+       ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease, background 200ms ease, border-color 200ms ease, color 200ms ease;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .btn-primary {
+      background: var(--gradient-cta);
+      color: var(--white);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-glow-strong);
+      filter: brightness(1.1);
+    }
+
+    .btn-primary:active {
+      transform: scale(0.98);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      border-color: var(--orange-sintonia);
+      background: rgba(232, 98, 26, 0.08);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--smoke);
+      font-weight: 500;
+      padding: 12px 20px;
+      min-height: 44px;
+    }
+
+    .btn-ghost:hover,
+    .btn-ghost:focus-visible {
+      color: var(--orange-sintonia);
+    }
+
+    .btn-lg {
+      min-height: 56px;
+      padding: 18px 36px;
+      font-size: 17px;
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    /* ============================================================
+       HEADER / NAV
+       ============================================================ */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(10, 10, 11, 0.55);
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      border-bottom: 1px solid transparent;
+      transition: background 280ms ease, border-color 280ms ease, box-shadow 280ms ease;
+    }
+
+    .site-header.is-scrolled {
+      background: rgba(10, 10, 11, 0.92);
+      border-bottom-color: var(--border-subtle);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-md);
+      background: var(--gradient-cta);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 700;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 4px;
+    }
+
+    @media (min-width: 1024px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--smoke);
+      border-radius: var(--radius-full);
+      transition: color 200ms ease, background 200ms ease;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-cta {
+        display: inline-flex;
+      }
+    }
+
+    .nav-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      color: var(--white);
+    }
+
+    @media (min-width: 1024px) {
+      .nav-toggle {
+        display: none;
+      }
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      padding: 16px 24px 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(10, 10, 11, 0.95);
+      backdrop-filter: blur(20px);
+    }
+
+    .mobile-menu.is-open {
+      display: flex;
+    }
+
+    .mobile-menu .nav-link {
+      width: 100%;
+      justify-content: flex-start;
+      padding: 14px 16px;
+      min-height: 48px;
+    }
+
+    .mobile-menu .btn {
+      margin-top: 12px;
+    }
+
+    @media (min-width: 1024px) {
+      .mobile-menu,
+      .mobile-menu.is-open {
+        display: none;
+      }
+    }
+
+    /* ============================================================
+       SEÇÕES (espaçamento padrão)
+       ============================================================ */
+    section {
+      padding-block: 64px;
+    }
+
+    @media (min-width: 768px) {
+      section {
+        padding-block: 96px;
+      }
+    }
+
+    .section-head {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 48px;
+      max-width: 760px;
+    }
+
+    .section-head.centered {
+      align-items: center;
+      text-align: center;
+      margin-inline: auto;
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+      position: relative;
+      padding-top: 80px;
+      padding-bottom: 96px;
+      overflow: hidden;
+      min-height: min(680px, 100vh);
+      background-color: var(--pure-black);
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        padding-top: 128px;
+        padding-bottom: 144px;
+      }
+    }
+
+    .hero-video-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at top, rgba(232, 98, 26, 0.22), transparent 65%),
+        linear-gradient(180deg, rgba(10, 10, 11, 0.55) 0%, rgba(10, 10, 11, 0.78) 60%, rgba(10, 10, 11, 0.92) 100%);
+    }
+
+    .hero-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse at top, #000 25%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at top, #000 25%, transparent 70%);
+      opacity: 0.6;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 28px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .hero-cta-group .btn {
+      flex: 1 1 240px;
+      max-width: 320px;
+    }
+
+    .hero-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      justify-content: center;
+      align-items: center;
+      max-width: 760px;
+      margin-top: 8px;
+      color: var(--muted-gray);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .hero-proof span {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .hero-proof span + span::before {
+      content: '·';
+      margin-right: 24px;
+      margin-left: -16px;
+      color: var(--orange-sintonia);
+      font-weight: 700;
+    }
+
+    /* Hero — força quebra: uma frase por linha em desktop */
+    .hero-line {
+      display: block;
+    }
+
+    /* Logo da marca (header e footer) */
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    /* Foto real dentro de .split-media */
+    .split-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Lista de redes sociais (CTA final) */
+    .social-list {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--smoke);
+      transition: transform 200ms ease, border-color 200ms ease, background 200ms ease, color 200ms ease, box-shadow 200ms ease;
+    }
+
+    .social-link:hover,
+    .social-link:focus-visible {
+      border-color: var(--orange-sintonia);
+      background: rgba(232, 98, 26, 0.1);
+      color: var(--orange-sintonia);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    /* ============================================================
+       MICRO GARANTIAS
+       ============================================================ */
+    .micro-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .micro-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+    }
+
+    .micro-card {
+      background: var(--gradient-card);
+      border: 1px solid rgba(232, 98, 26, 0.12);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      transition: border-color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+    }
+
+    .micro-card:hover {
+      border-color: rgba(232, 98, 26, 0.4);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg), var(--shadow-inner-glow);
+    }
+
+    .micro-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: rgba(232, 98, 26, 0.1);
+      color: var(--orange-sintonia);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .micro-card h3 {
+      margin-bottom: 12px;
+    }
+
+    /* ============================================================
+       PROBLEMA / VIRADA
+       ============================================================ */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .split {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 72px;
+      }
+    }
+
+    .split-text > * + * {
+      margin-top: 20px;
+    }
+
+    .split-text strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .split-media {
+      position: relative;
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      background: var(--gradient-card);
+      border: 1px solid var(--border-subtle);
+      aspect-ratio: 4 / 5;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .split-media-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(ellipse at top, rgba(232, 98, 26, 0.2), transparent 70%),
+        var(--gradient-card);
+      color: var(--muted-gray);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .placeholder-portrait {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .placeholder-portrait .initials {
+      font-family: var(--font-display);
+      font-size: 96px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      background: var(--gradient-cta);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* ============================================================
+       O QUE É (intro block)
+       ============================================================ */
+    .intro-text > * + * {
+      margin-top: 20px;
+    }
+
+    .intro-text strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       DIFERENCIAIS (grid 2x2)
+       ============================================================ */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .diff-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .diff-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .diff-card {
+      background: var(--gradient-card);
+      border: 1px solid rgba(232, 98, 26, 0.12);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      transition: border-color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+    }
+
+    .diff-card:hover {
+      border-color: rgba(232, 98, 26, 0.4);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg), var(--shadow-inner-glow);
+    }
+
+    .diff-card-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      background: rgba(232, 98, 26, 0.1);
+      border: 1px solid rgba(232, 98, 26, 0.25);
+      color: var(--orange-sintonia);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .diff-card h3 {
+      margin-bottom: 12px;
+    }
+
+    /* ============================================================
+       PILARES
+       ============================================================ */
+    .pilares-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .pilares-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+    }
+
+    .pilar-card {
+      background: var(--gradient-card);
+      border: 1px solid rgba(232, 98, 26, 0.12);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      transition: border-color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+    }
+
+    .pilar-card:hover {
+      border-color: rgba(232, 98, 26, 0.4);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg), var(--shadow-inner-glow);
+    }
+
+    .pilar-card-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .pilar-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: var(--gradient-cta);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .pilar-card-title-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .pilar-card-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--orange-sintonia);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .pilar-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .pilar-list li {
+      position: relative;
+      padding-left: 24px;
+      color: var(--smoke);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .pilar-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--orange-sintonia);
+      box-shadow: 0 0 12px rgba(232, 98, 26, 0.5);
+    }
+
+    /* ============================================================
+       CTA INTERMEDIÁRIO
+       ============================================================ */
+    .cta-band {
+      padding-block: 96px;
+      background: var(--pure-black);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient-glow);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .cta-band-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 28px;
+    }
+
+    /* ============================================================
+       PARA QUEM É (3 colunas)
+       ============================================================ */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .audience-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+    }
+
+    .audience-card {
+      background: var(--gradient-card);
+      border: 1px solid rgba(232, 98, 26, 0.12);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: border-color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+    }
+
+    .audience-card:hover {
+      border-color: rgba(232, 98, 26, 0.4);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg), var(--shadow-inner-glow);
+    }
+
+    .audience-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .audience-card .body {
+      color: var(--smoke);
+    }
+
+    .audience-list-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted-gray);
+      margin-bottom: 12px;
+    }
+
+    .audience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .audience-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--smoke);
+    }
+
+    .audience-list li svg {
+      flex-shrink: 0;
+      margin-top: 3px;
+      color: var(--orange-sintonia);
+    }
+
+    /* ============================================================
+       DEPOIMENTOS
+       ============================================================ */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .testi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+    }
+
+    .testi-card {
+      background: var(--deep-gray);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .testi-card::before {
+      content: '"';
+      position: absolute;
+      top: 12px;
+      right: 24px;
+      font-family: var(--font-display);
+      font-size: 80px;
+      line-height: 1;
+      color: var(--orange-sintonia);
+      opacity: 0.4;
+    }
+
+    .testi-quote {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--smoke);
+      font-style: italic;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .testi-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--gradient-cta);
+      border: 1px solid rgba(232, 98, 26, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .testi-author-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .testi-author-name {
+      color: var(--white);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .testi-author-role {
+      color: var(--muted-gray);
+      font-size: 13px;
+    }
+
+    /* ============================================================
+       AULAS REAIS (galeria — substitui depoimentos)
+       ============================================================ */
+    .aulas-sub {
+      color: var(--muted-gray);
+      font-size: 15px;
+      line-height: 1.6;
+      max-width: 640px;
+      margin-top: 8px;
+    }
+
+    /* Marquee infinito da galeria de aulas */
+    .aulas-marquee {
+      position: relative;
+      width: 100vw;
+      max-width: 100%;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+    }
+
+    .aulas-track {
+      --card-w: 240px;
+      --gap: 16px;
+      display: flex;
+      gap: var(--gap);
+      width: max-content;
+      padding-block: 4px;
+      animation: aulas-scroll 55s linear infinite;
+      will-change: transform;
+    }
+
+    @media (min-width: 768px) {
+      .aulas-track {
+        --card-w: 280px;
+        --gap: 20px;
+        animation-duration: 70s;
+      }
+    }
+
+    .aulas-marquee:hover .aulas-track,
+    .aulas-marquee:focus-within .aulas-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes aulas-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(calc(-1 * (var(--card-w) + var(--gap)) * 8)); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .aulas-marquee {
+        overflow-x: auto;
+        -webkit-mask-image: none;
+        mask-image: none;
+        scrollbar-width: thin;
+      }
+      .aulas-track {
+        animation: none;
+      }
+    }
+
+    .aula-card {
+      background: var(--deep-gray);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      width: var(--card-w);
+    }
+
+    .aula-card:hover {
+      border-color: rgba(232, 98, 26, 0.4);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg), var(--shadow-inner-glow);
+    }
+
+    .aula-card-media {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: var(--carbon);
+      overflow: hidden;
+    }
+
+    .aula-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .aula-card-body {
+      padding: 14px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .aula-card-name {
+      color: var(--white);
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1.3;
+    }
+
+    .aula-card-niche {
+      color: var(--muted-gray);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       GARANTIA
+       ============================================================ */
+    .guarantee-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .guarantee-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .guarantee-card {
+      background: var(--gradient-card);
+      border: 1px solid rgba(232, 98, 26, 0.12);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .guarantee-seal {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 18px;
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      border-radius: var(--radius-full);
+      color: var(--success);
+      font-size: 13px;
+      font-weight: 600;
+      align-self: flex-start;
+    }
+
+    .guarantee-seal svg {
+      flex-shrink: 0;
+    }
+
+    .guarantee-card.alt .guarantee-seal {
+      background: rgba(232, 98, 26, 0.08);
+      border-color: rgba(232, 98, 26, 0.25);
+      color: var(--orange-sintonia);
+    }
+
+    /* ============================================================
+       PRICING
+       ============================================================ */
+    .price-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    @media (min-width: 1024px) {
+      .price-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .price-card {
+      background: var(--gradient-card);
+      border: 1px solid rgba(232, 98, 26, 0.12);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+      transition: border-color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+    }
+
+    .price-card:hover {
+      border-color: rgba(232, 98, 26, 0.4);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg), var(--shadow-inner-glow);
+    }
+
+    .price-card.featured {
+      background: var(--gradient-card-premium);
+      border: 1px solid var(--orange-sintonia);
+      border-radius: var(--radius-2xl);
+      padding: 40px 32px;
+      box-shadow: 0 16px 48px rgba(232, 98, 26, 0.25);
+    }
+
+    @media (min-width: 1024px) {
+      .price-card.featured {
+        transform: scale(1.03);
+      }
+      .price-card.featured:hover {
+        transform: scale(1.03) translateY(-4px);
+      }
+    }
+
+    .price-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: rgba(232, 98, 26, 0.08);
+      border: 1px solid rgba(232, 98, 26, 0.2);
+      border-radius: var(--radius-full);
+      color: var(--orange-sintonia);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      align-self: flex-start;
+    }
+
+    .price-card.featured .price-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--orange-sintonia);
+      border-color: var(--orange-sintonia);
+      color: var(--white);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .price-head h3 {
+      margin-bottom: 8px;
+    }
+
+    .price-subtitle {
+      color: var(--muted-gray);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .price-features {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+
+    .price-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--smoke);
+    }
+
+    .price-features svg {
+      color: var(--orange-sintonia);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .price-amount {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .price-amount-main {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .price-amount-sub {
+      font-size: 13px;
+      color: var(--muted-gray);
+    }
+
+    .price-note {
+      margin-top: 32px;
+      text-align: center;
+      color: var(--muted-gray);
+      font-size: 15px;
+      max-width: 640px;
+      margin-inline: auto;
+    }
+
+    /* ============================================================
+       SOBRE PAULO
+       ============================================================ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .about-grid {
+        grid-template-columns: 1fr 1.3fr;
+        gap: 72px;
+      }
+    }
+
+    .about-text > * + * {
+      margin-top: 20px;
+    }
+
+    .about-text strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .about-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 32px !important;
+    }
+
+    .about-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--smoke);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .about-bullets svg {
+      flex-shrink: 0;
+      color: var(--orange-sintonia);
+      margin-top: 3px;
+    }
+
+    /* ============================================================
+       FAQ
+       ============================================================ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 860px;
+      margin-inline: auto;
+    }
+
+    .faq-item {
+      background: var(--deep-gray);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color 300ms ease;
+    }
+
+    .faq-item[open] {
+      border-color: rgba(232, 98, 26, 0.4);
+    }
+
+    .faq-summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 1.4;
+      min-height: 64px;
+    }
+
+    .faq-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-summary:hover {
+      color: var(--orange-sintonia);
+    }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      color: var(--orange-sintonia);
+      transition: transform 200ms ease;
+    }
+
+    .faq-item[open] .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      padding: 0 24px 24px;
+      color: var(--smoke);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       CTA FINAL
+       ============================================================ */
+    .final-cta {
+      padding-block: 96px;
+      background:
+        radial-gradient(ellipse at center, rgba(232, 98, 26, 0.18), transparent 70%),
+        var(--pure-black);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse at center, #000 20%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .final-cta-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 28px;
+    }
+
+    .final-cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .final-cta-buttons .btn {
+      flex: 1 1 260px;
+      max-width: 360px;
+    }
+
+    .final-cta-note {
+      color: var(--muted-gray);
+      font-size: 14px;
+      text-align: center;
+      max-width: 640px;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .site-footer {
+      background: var(--pure-black);
+      border-top: 1px solid var(--border-subtle);
+      padding-block: 64px 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1.4fr repeat(3, 1fr);
+        gap: 32px;
+      }
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 320px;
+    }
+
+    .footer-brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--white);
+    }
+
+    .footer-brand-tag {
+      color: var(--muted-gray);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-list a {
+      color: var(--muted-gray);
+      font-size: 14px;
+      transition: color 200ms ease;
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+    }
+
+    .footer-list a:hover,
+    .footer-list a:focus-visible {
+      color: var(--orange-sintonia);
+    }
+
+    .footer-list li {
+      color: var(--muted-gray);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      color: var(--muted-gray);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    @media (min-width: 768px) {
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .footer-legal-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal-links a:hover,
+    .footer-legal-links a:focus-visible {
+      color: var(--orange-sintonia);
+    }
+
+    /* ============================================================
+       STICKY CTA (mobile)
+       ============================================================ */
+    .sticky-cta {
+      position: fixed;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%) translateY(120%);
+      z-index: 60;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 22px;
+      min-height: 52px;
+      background: var(--gradient-cta);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-glow-strong);
+      transition: transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 200ms ease;
+      opacity: 0;
+      pointer-events: none;
+      width: max-content;
+      max-width: calc(100% - 32px);
+    }
+
+    .sticky-cta.is-visible {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (min-width: 1024px) {
+      .sticky-cta {
+        display: none;
+      }
+    }
+
+    /* ============================================================
+       ANIMATIONS
+       ============================================================ */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 600ms ease, transform 600ms ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#hero" class="nav-brand" aria-label="Sintonia Solutions — início">
+          <img class="brand-logo" src="logo sintonia atual.png" alt="Logo Sintonia Solutions" width="36" height="36" />
+          <span>Sintonia Solutions</span>
+        </a>
+
+        <ul class="nav-links" role="list">
+          <li><a class="nav-link" href="#servicos">Serviços</a></li>
+          <li><a class="nav-link" href="#metodo">Método</a></li>
+          <li><a class="nav-link" href="#para-quem">Para quem é</a></li>
+          <li><a class="nav-link" href="#investimento">Investimento</a></li>
+          <li><a class="nav-link" href="#faq">FAQ</a></li>
+        </ul>
+
+        <a class="btn btn-primary nav-cta" href="#contato">
+          Quero conversar
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" role="menu">
+      <a class="nav-link" href="#servicos" role="menuitem">Serviços</a>
+      <a class="nav-link" href="#metodo" role="menuitem">Método</a>
+      <a class="nav-link" href="#para-quem" role="menuitem">Para quem é</a>
+      <a class="nav-link" href="#investimento" role="menuitem">Investimento</a>
+      <a class="nav-link" href="#faq" role="menuitem">FAQ</a>
+      <a class="btn btn-primary" href="#contato" role="menuitem">
+        Quero conversar no WhatsApp
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================================================
+         1. HERO
+         ============================================================ -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <video
+        class="hero-video-bg"
+        src="video hero lp.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        aria-hidden="true"
+        tabindex="-1"
+      ></video>
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="container hero-inner">
+        <span class="tag">Gestão de Tráfego · Aulas 1:1 · Turmas em Grupo</span>
+
+        <h1 id="hero-title" class="display-xl">
+          <span class="hero-line">Tráfego pago não é mágica.</span>
+          <span class="hero-line">É raciocínio aplicado aos dados certos.</span>
+        </h1>
+
+        <p class="body-lg">
+          Gestão de campanhas, mentoria individual e turmas em grupo com método, transparência e infraestrutura técnica de verdade. Para empresas que cansaram de queimar verba — e profissionais que querem dominar a mídia paga sem atalhos.
+        </p>
+
+        <div class="hero-cta-group">
+          <a class="btn btn-primary btn-lg" href="#contato" aria-label="Quero conversar no WhatsApp">
+            Quero conversar no WhatsApp
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a class="btn btn-secondary btn-lg" href="#investimento" aria-label="Conhecer os serviços">
+            Conhecer os serviços
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
+        </div>
+
+        <p class="hero-proof" role="text">
+          <span>+R$ 100 mil/mês em mídia gerenciada</span>
+          <span>Clientes em real estate, porcelanato, infoprodutos e e-commerce</span>
+          <span>Atendimento direto, sem intermediário</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         2. MICRO GARANTIAS
+         ============================================================ -->
+    <section id="garantias" aria-label="Garantias de atendimento">
+      <div class="container">
+        <div class="micro-grid">
+          <article class="micro-card reveal">
+            <div class="micro-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3 class="h3">Atendimento direto</h3>
+            <p class="body">Quem fala com você é quem opera a campanha. Sem SDR, sem gestor júnior, sem repassar pra equipe terceirizada.</p>
+          </article>
+
+          <article class="micro-card reveal">
+            <div class="micro-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </div>
+            <h3 class="h3">Diagnóstico gratuito</h3>
+            <p class="body">Antes de qualquer proposta, eu olho sua estrutura atual e te falo o que tá funcionando, o que tá quebrado e onde tem dinheiro saindo pela porta dos fundos.</p>
+          </article>
+
+          <article class="micro-card reveal">
+            <div class="micro-card-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3 class="h3">Transparência total</h3>
+            <p class="body">Você tem acesso a tudo: conta de anúncios, relatórios, decisões. Não tem caixa-preta. Tráfego é dado — e dado é seu.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. PROBLEMA / VIRADA
+         ============================================================ -->
+    <section id="problema" aria-labelledby="problema-title">
+      <div class="container">
+        <div class="split">
+          <div class="split-text">
+            <span class="tag">O verdadeiro problema</span>
+            <h2 id="problema-title" class="display-lg">
+              Você não precisa de mais um anúncio bonito. Precisa de uma estrutura que vende.
+            </h2>
+            <p class="body-lg">
+              A maioria das empresas que me procuram já gastou três, cinco, dez mil reais com gestores que prometeram resultado e entregaram print de impressões.
+            </p>
+            <p class="body-lg">
+              O problema quase nunca é o criativo. É a base.
+            </p>
+            <p class="body-lg">
+              Quando o pixel tá instalado errado, o público é genérico, a landing page não converte e ninguém olha pros dados com cabeça — qualquer campanha vira loteria.
+            </p>
+            <p class="body-lg">
+              <strong>Tráfego pago bem feito começa muito antes do anúncio.</strong> Começa em entender o negócio, mapear o funil, montar a infraestrutura técnica e só depois apertar o play. É isso que separa quem investe de quem aposta.
+            </p>
+          </div>
+
+          <div class="split-media">
+            <img
+              src="fotos paulo/paulo foto terno.png"
+              alt="Retrato profissional de Paulo Cesar em preto e branco, com terno escuro e gola alta"
+              loading="lazy"
+              width="800"
+              height="1000"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. O QUE É A SINTONIA SOLUTIONS
+         ============================================================ -->
+    <section id="servicos" aria-labelledby="servicos-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">Conheça</span>
+          <h2 id="servicos-title" class="h1">
+            Uma operação de tráfego pago construída sobre método, dados e backoffice técnico.
+          </h2>
+        </div>
+
+        <div class="intro-text">
+          <p class="body-lg">
+            A Sintonia Solutions é o que acontece quando você junta gestão de tráfego pago com domínio de desenvolvimento front-end e tracking server-side na mesma pessoa.
+          </p>
+          <p class="body-lg">
+            Para empresas, isso significa um gestor que entende tanto o leilão do Meta quanto o código da sua landing page — e que toma decisão olhando pro funil inteiro, não só pro painel de anúncios.
+          </p>
+          <p class="body-lg">
+            Para quem quer aprender, significa aulas construídas pra formar profissional que pensa, não pra criar mais um copiador de tutorial do YouTube.
+          </p>
+          <p class="body-lg">
+            <strong>Três frentes. Um único princípio: tráfego é raciocínio, não é mágica.</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. DIFERENCIAIS
+         ============================================================ -->
+    <section id="diferenciais" aria-labelledby="diferenciais-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">O que muda aqui</span>
+          <h2 id="diferenciais-title" class="h1">Diferenciais que sustentam o método.</h2>
+        </div>
+
+        <div class="diff-grid">
+          <article class="diff-card reveal">
+            <span class="diff-card-number" aria-hidden="true">01</span>
+            <h3 class="h3">Tracking server-side de verdade</h3>
+            <p class="body">Não é só Pixel no Google Tag Manager. É Conversion API, deduplicação, eventos enriquecidos e atribuição limpa. O que separa quem mede certo de quem mede pela metade.</p>
+          </article>
+
+          <article class="diff-card reveal">
+            <span class="diff-card-number" aria-hidden="true">02</span>
+            <h3 class="h3">Um cliente por nicho</h3>
+            <p class="body">Não pego dois concorrentes diretos ao mesmo tempo. Sua estratégia, seus dados e seus criativos ficam exclusivos seus.</p>
+          </article>
+
+          <article class="diff-card reveal">
+            <span class="diff-card-number" aria-hidden="true">03</span>
+            <h3 class="h3">Acompanhamento sem terceirização</h3>
+            <p class="body">Você fala comigo. Eu opero a conta. Eu olho os dados. Eu te ligo quando tem decisão pra tomar. Sem repassar pra equipe júnior, sem fila de atendimento.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6. PILARES DO MÉTODO
+         ============================================================ -->
+    <section id="metodo" aria-labelledby="metodo-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">Como funciona</span>
+          <h2 id="metodo-title" class="h1">
+            Não é mentoria de fórmula pronta. Não é gestão de "deixa que eu faço". É um método de quatro pilares.
+          </h2>
+        </div>
+
+        <div class="pilares-grid">
+          <article class="pilar-card reveal">
+            <div class="pilar-card-head">
+              <div class="pilar-card-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              </div>
+              <div class="pilar-card-title-row">
+                <span class="pilar-card-eyebrow">Pilar 1</span>
+                <h3 class="h3">Estratégia antes de mídia</h3>
+              </div>
+            </div>
+            <ul class="pilar-list">
+              <li>Diagnóstico completo do negócio, oferta e funil atual</li>
+              <li>Definição de público-alvo, ICP e posicionamento da oferta</li>
+              <li>Estruturação de objetivos mensuráveis (CPL, ROAS, CAC)</li>
+              <li>Mapeamento das objeções reais do mercado</li>
+            </ul>
+          </article>
+
+          <article class="pilar-card reveal">
+            <div class="pilar-card-head">
+              <div class="pilar-card-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
+              </div>
+              <div class="pilar-card-title-row">
+                <span class="pilar-card-eyebrow">Pilar 2</span>
+                <h3 class="h3">Infraestrutura técnica</h3>
+              </div>
+            </div>
+            <ul class="pilar-list">
+              <li>Instalação e auditoria de Pixel + Conversion API</li>
+              <li>Configuração de eventos enriquecidos e deduplicação</li>
+              <li>Construção ou auditoria de landing pages focadas em conversão</li>
+              <li>GTM, GA4, UTMs limpas e atribuição confiável</li>
+            </ul>
+          </article>
+
+          <article class="pilar-card reveal">
+            <div class="pilar-card-head">
+              <div class="pilar-card-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+              </div>
+              <div class="pilar-card-title-row">
+                <span class="pilar-card-eyebrow">Pilar 3</span>
+                <h3 class="h3">Mídia comprada com cabeça</h3>
+              </div>
+            </div>
+            <ul class="pilar-list">
+              <li>Estrutura de campanha por etapa de funil (topo, meio, fundo)</li>
+              <li>Criativos testados em ciclos curtos com hipótese clara</li>
+              <li>Escalonamento por orçamento, não por aposta</li>
+              <li>Otimização baseada em dado, não em achismo</li>
+            </ul>
+          </article>
+
+          <article class="pilar-card reveal">
+            <div class="pilar-card-head">
+              <div class="pilar-card-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 3v6M15 3v6M9 15v6M15 15v6M3 9h6M3 15h6M15 9h6M15 15h6"/></svg>
+              </div>
+              <div class="pilar-card-title-row">
+                <span class="pilar-card-eyebrow">Pilar 4</span>
+                <h3 class="h3">Análise e decisão semanal</h3>
+              </div>
+            </div>
+            <ul class="pilar-list">
+              <li>Relatório semanal com leitura estratégica, não só números</li>
+              <li>Reuniões quinzenais (gestão) ou aulas estruturadas (mentoria)</li>
+              <li>Decisão clara de continuidade, pausa ou pivô</li>
+              <li>Histórico de decisões documentado pra você acompanhar a evolução</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         7. CTA INTERMEDIÁRIO
+         ============================================================ -->
+    <section class="cta-band" aria-label="Chamada para conversa">
+      <div class="container cta-band-inner">
+        <h2 class="display-lg">
+          Se você quer parar de queimar verba e começar a investir com inteligência, é aqui.
+        </h2>
+        <a class="btn btn-primary btn-lg" href="#contato">
+          Quero falar agora
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         8. PARA QUEM É
+         ============================================================ -->
+    <section id="para-quem" aria-labelledby="para-quem-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">É pra você se</span>
+          <h2 id="para-quem-title" class="h1">Três caminhos. Cada um pra um momento diferente.</h2>
+        </div>
+
+        <div class="audience-grid">
+          <article class="audience-card reveal">
+            <div>
+              <h3 class="h3">Você quer terceirizar (Gestão de Tráfego)</h3>
+            </div>
+            <p class="body">Você tem empresa, tem orçamento de mídia (a partir de R$ 3 mil/mês), e quer um gestor que toma conta da operação inteira sem você precisar entender de pixel, leilão ou copy. Você quer um parceiro que pensa junto, reporta com clareza e responde quando você chama.</p>
+            <div>
+              <p class="audience-list-title">Avatares atendidos</p>
+              <ul class="audience-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Negócio local com loja física (clínicas, óticas, restaurantes)</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>E-commerce em busca de escala</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Real estate (corretores e imobiliárias)</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="audience-card reveal">
+            <div>
+              <h3 class="h3">Você quer aprender com profundidade (Aula Particular)</h3>
+            </div>
+            <p class="body">Você não quer mais um curso gravado. Quer alguém que olhe pra SUA conta, pra SEU mercado, pro SEU funil — e te ensine fazendo, com a sua realidade na mesa. Encontros 1:1 ao vivo, com método, tarefas entre as aulas e cobrança real de evolução.</p>
+            <div>
+              <p class="audience-list-title">Avatares atendidos</p>
+              <ul class="audience-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Gestor de tráfego iniciante que quer pular a curva de erro</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Empreendedor que quer rodar a própria mídia com competência</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Profissional em transição de carreira pra marketing digital</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="audience-card reveal">
+            <div>
+              <h3 class="h3">Você quer aprender com comunidade (Aula em Grupo)</h3>
+            </div>
+            <p class="body">Turma fechada com até 10 pessoas. Aulas ao vivo semanais, comunidade ativa pra trocar campanha real, e o conteúdo completo gravado pra revisar quando quiser. Pra quem aprende melhor vendo problemas reais sendo resolvidos coletivamente.</p>
+            <div>
+              <p class="audience-list-title">Avatares atendidos</p>
+              <ul class="audience-list">
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Quem tá começando do zero e quer ambiente de aprendizado coletivo</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Profissional autônomo que quer formar repertório vendo cases de outros nichos</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Empreendedor com investimento mais enxuto que quer dominar a operação</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         9. AULAS REAIS (galeria — alunos atendidos)
+         ============================================================ -->
+    <section id="aulas" aria-labelledby="aulas-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">Quem trabalhou comigo</span>
+          <h2 id="aulas-title" class="h1">Resultado real, de cliente real. Sem print fabricado.</h2>
+          <p class="aulas-sub">Aulas ao vivo com alunos de nichos diferentes — vendas, mercado pet, terapias integrativas, turismo de aventura e mais. Cada imagem é um encontro 1:1 que aconteceu.</p>
+        </div>
+
+        <div class="aulas-marquee" aria-label="Galeria de aulas reais (rola automaticamente, pausa ao passar o mouse)">
+          <div class="aulas-track">
+            <!-- Conjunto 1 (visível para leitor de tela) -->
+            <article class="aula-card">
+              <div class="aula-card-media">
+                <img src="aulas fotos/ana flavia - vendas.png" alt="Aula com Ana Flávia — segmento de e-commerce" loading="lazy" width="640" height="360" />
+              </div>
+              <div class="aula-card-body">
+                <span class="aula-card-name">Ana Flávia</span>
+                <span class="aula-card-niche">Ecommerce</span>
+              </div>
+            </article>
+            <article class="aula-card">
+              <div class="aula-card-media">
+                <img src="aulas fotos/guilherme - adestrador.png" alt="Aula com Guilherme — adestrador" loading="lazy" width="640" height="360" />
+              </div>
+              <div class="aula-card-body">
+                <span class="aula-card-name">Guilherme</span>
+                <span class="aula-card-niche">Adestrador</span>
+              </div>
+            </article>
+            <article class="aula-card">
+              <div class="aula-card-media">
+                <img src="aulas fotos/nani.png" alt="Aula com Nani Mattos — terapias integrativas" loading="lazy" width="640" height="360" />
+              </div>
+              <div class="aula-card-body">
+                <span class="aula-card-name">Nani Mattos</span>
+                <span class="aula-card-niche">Terapias Integrativas</span>
+              </div>
+            </article>
+            <article class="aula-card">
+              <div class="aula-card-media">
+                <img src="aulas fotos/vinicius cap.av.png" alt="Aula com Vinícius — Capital Aventuras" loading="lazy" width="640" height="360" />
+              </div>
+              <div class="aula-card-body">
+                <span class="aula-card-name">Vinícius</span>
+                <span class="aula-card-niche">Capital Aventuras</span>
+              </div>
+            </article>
+            <article class="aula-card">
+              <div class="aula-card-media">
+                <img src="aulas fotos/flavia.png" alt="Aula com Flávia — terapeuta" loading="lazy" width="640" height="360" />
+              </div>
+              <div class="aula-card-body">
+                <span class="aula-card-name">Flávia</span>
+                <span class="aula-card-niche">Terapeuta</span>
+              </div>
+            </article>
+            <article class="aula-card">
+              <div class="aula-card-media">
+                <img src="aulas fotos/leandro.png" alt="Aula com Leandro — peças para frigorífico" loading="lazy" width="640" height="360" />
+              </div>
+              <div class="aula-card-body">
+                <span class="aula-card-name">Leandro</span>
+                <span class="aula-card-niche">Peças para frigorífico</span>
+              </div>
+            </article>
+            <article class="aula-card">
+              <div class="aula-card-media">
+                <img src="aulas fotos/renata.png" alt="Aula com Renata — mercado imobiliário" loading="lazy" width="640" height="360" />
+              </div>
+              <div class="aula-card-body">
+                <span class="aula-card-name">Renata</span>
+                <span class="aula-card-niche">Imobiliária</span>
+              </div>
+            </article>
+            <article class="aula-card">
+              <div class="aula-card-media">
+                <img src="aulas fotos/tom.png" alt="Aula com Tom — fisioterapeuta" loading="lazy" width="640" height="360" />
+              </div>
+              <div class="aula-card-body">
+                <span class="aula-card-name">Tom</span>
+                <span class="aula-card-niche">Fisioterapeuta</span>
+              </div>
+            </article>
+
+            <!-- Conjunto 2: duplicata oculta para loop contínuo -->
+            <article class="aula-card" aria-hidden="true">
+              <div class="aula-card-media">
+                <img src="aulas fotos/ana flavia - vendas.png" alt="" loading="lazy" width="640" height="360" />
+              </div>
+              <div class="aula-card-body">
+                <span class="aula-card-name">Ana Flávia</span>
+                <span class="aula-card-niche">Ecommerce</span>
+              </div>
+            </article>
+            <article class="aula-card" aria-hidden="true">
+              <div class="aula-card-media">
+                <img src="aulas fotos/guilherme - adestrador.png" alt="" loading="lazy" width="640" height="360" />
+              </div>
+              <div class="aula-card-body">
+                <span class="aula-card-name">Guilherme</span>
+                <span class="aula-card-niche">Adestrador</span>
+              </div>
+            </article>
+            <article class="aula-card" aria-hidden="true">
+              <div class="aula-card-media">
+                <img src="aulas fotos/nani.png" alt="" loading="lazy" width="640" height="360" />
+              </div>
+              <div class="aula-card-body">
+                <span class="aula-card-name">Nani Mattos</span>
+                <span class="aula-card-niche">Terapias Integrativas</span>
+              </div>
+            </article>
+            <article class="aula-card" aria-hidden="true">
+              <div class="aula-card-media">
+                <img src="aulas fotos/vinicius cap.av.png" alt="" loading="lazy" width="640" height="360" />
+              </div>
+              <div class="aula-card-body">
+                <span class="aula-card-name">Vinícius</span>
+                <span class="aula-card-niche">Capital Aventuras</span>
+              </div>
+            </article>
+            <article class="aula-card" aria-hidden="true">
+              <div class="aula-card-media">
+                <img src="aulas fotos/flavia.png" alt="" loading="lazy" width="640" height="360" />
+              </div>
+              <div class="aula-card-body">
+                <span class="aula-card-name">Flávia</span>
+                <span class="aula-card-niche">Terapeuta</span>
+              </div>
+            </article>
+            <article class="aula-card" aria-hidden="true">
+              <div class="aula-card-media">
+                <img src="aulas fotos/leandro.png" alt="" loading="lazy" width="640" height="360" />
+              </div>
+              <div class="aula-card-body">
+                <span class="aula-card-name">Leandro</span>
+                <span class="aula-card-niche">Peças para frigorífico</span>
+              </div>
+            </article>
+            <article class="aula-card" aria-hidden="true">
+              <div class="aula-card-media">
+                <img src="aulas fotos/renata.png" alt="" loading="lazy" width="640" height="360" />
+              </div>
+              <div class="aula-card-body">
+                <span class="aula-card-name">Renata</span>
+                <span class="aula-card-niche">Imobiliária</span>
+              </div>
+            </article>
+            <article class="aula-card" aria-hidden="true">
+              <div class="aula-card-media">
+                <img src="aulas fotos/tom.png" alt="" loading="lazy" width="640" height="360" />
+              </div>
+              <div class="aula-card-body">
+                <span class="aula-card-name">Tom</span>
+                <span class="aula-card-niche">Fisioterapeuta</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         10. GARANTIA
+         ============================================================ -->
+    <section id="garantia" aria-labelledby="garantia-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">Risco baixo</span>
+          <h2 id="garantia-title" class="h1">Você não fecha contrato no escuro.</h2>
+        </div>
+
+        <div class="guarantee-grid">
+          <article class="guarantee-card alt reveal">
+            <span class="guarantee-seal" aria-label="Contrato com cláusula de saída">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+              Contrato com cláusula de saída
+            </span>
+            <h3 class="h3">Gestão de Tráfego</h3>
+            <p class="body">Trabalho com contrato de 90 dias com escopo claro, marcos definidos e cláusula de saída. Se em 30 dias você não enxergar evolução estrutural na operação (não estou falando de venda mágica — estou falando de estrutura saneada, dados confiáveis, decisão fundamentada), você sai sem multa.</p>
+          </article>
+
+          <article class="guarantee-card reveal">
+            <span class="guarantee-seal" aria-label="7 dias de garantia">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+              7 dias de garantia
+            </span>
+            <h3 class="h3">Aulas Particulares e em Grupo</h3>
+            <p class="body">Garantia incondicional de 7 dias. Se nas duas primeiras aulas você sentir que não é pra você, devolvo 100% do valor. Sem pergunta, sem burocracia.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         11. PRECIFICAÇÃO
+         ============================================================ -->
+    <section id="investimento" aria-labelledby="investimento-title">
+      <div class="container">
+        <div class="section-head centered">
+          <span class="tag">Investimento</span>
+          <h2 id="investimento-title" class="h1">Escolha o caminho. O método é o mesmo nos três.</h2>
+        </div>
+
+        <div class="price-grid">
+          <!-- Card 1 -->
+          <article class="price-card reveal">
+            <span class="price-badge">Sob consulta</span>
+            <div class="price-head">
+              <h3 class="h3">Gestão de Tráfego Pago</h3>
+              <p class="price-subtitle">Operação completa de mídia paga</p>
+            </div>
+            <ul class="price-features">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Diagnóstico inicial gratuito</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Setup técnico (pixel, CAPI, GTM, GA4)</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Gestão de Meta Ads e Google Ads</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Auditoria ou construção de landing page</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Relatório semanal com leitura estratégica</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Reuniões quinzenais</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Atendimento direto via WhatsApp</li>
+            </ul>
+            <div class="price-amount">
+              <span class="price-amount-main">A partir de R$ 1.500/mês</span>
+              <span class="price-amount-sub">Mínimo de investimento em mídia: R$ 1.500/mês</span>
+            </div>
+            <a class="btn btn-secondary btn-block" href="#contato">
+              Quero diagnóstico gratuito
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+
+          <!-- Card 2 (featured) -->
+          <article class="price-card featured reveal">
+            <span class="price-badge">Mais popular</span>
+            <div class="price-head">
+              <h3 class="h3">Aula em Grupo</h3>
+              <p class="price-subtitle">Ciclo de 90 dias · até 10 alunos por turma</p>
+            </div>
+            <ul class="price-features">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>12 aulas ao vivo semanais (2h cada)</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Conteúdo completo gravado para revisão</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Comunidade ativa de alunos</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Análise de cases reais a cada aula</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Suporte direto durante o ciclo</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Templates, prompts e materiais de apoio</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Certificado de conclusão</li>
+            </ul>
+            <div class="price-amount">
+              <span class="price-amount-main">10x de R$ 34,60</span>
+              <span class="price-amount-sub">ou R$ 346 à vista</span>
+            </div>
+            <a class="btn btn-primary btn-block" href="#contato">
+              Garantir minha vaga
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="price-card reveal">
+            <span class="price-badge">Atendimento exclusivo</span>
+            <div class="price-head">
+              <h3 class="h3">Aula Particular</h3>
+              <p class="price-subtitle">Mentoria 1:1 com agenda flexível</p>
+            </div>
+            <ul class="price-features">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Encontros semanais de 90 minutos</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Plano de aprendizagem desenhado pra sua realidade</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Análise da sua conta e operação a cada encontro</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Tarefas estruturadas entre as aulas</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Suporte direto entre os encontros</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Acesso a todo o material da turma em grupo</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Mínimo de 3 meses</li>
+            </ul>
+            <div class="price-amount">
+              <span class="price-amount-main">R$ 445/mês</span>
+              <span class="price-amount-sub">ou R$ 1.335 à vista</span>
+            </div>
+            <a class="btn btn-secondary btn-block" href="#contato">
+              Quero conversar
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+        </div>
+
+        <p class="price-note">
+          Não sabe qual caminho serve pra você agora? Me chama no WhatsApp que eu te ajudo a decidir — sem compromisso.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         12. SOBRE PAULO
+         ============================================================ -->
+    <section id="sobre" aria-labelledby="sobre-title">
+      <div class="container">
+        <div class="about-grid">
+          <div class="split-media">
+            <img
+              src="fotos paulo/paulo cesar.jpg"
+              alt="Paulo Cesar trabalhando em seu home office: escrevendo em caderno, com laptop e estante de livros ao fundo"
+              loading="lazy"
+              width="800"
+              height="800"
+            />
+          </div>
+
+          <div class="about-text">
+            <span class="tag">Quem te atende</span>
+            <h2 id="sobre-title" class="h1">
+              Paulo Cesar — gestor de tráfego, cientista de dados e desenvolvedor front-end. Não vendo mágica. Vendo método.
+            </h2>
+            <p class="body-lg">
+              Atuo há 8 anos no marketing digital, com mais de R$ 100 mil/mês em mídia gerenciada já passados por contas em concessionária, indústria de porcelanato, infoprodutos, clínicas e e-commerce.
+            </p>
+            <p class="body-lg">
+              Minha formação é diferente da média do mercado: além de gestor de tráfego com domínio em Meta Ads e Google Ads, sou desenvolvedor front-end (React, Next.js, TypeScript). Isso significa que eu monto a landing, instalo o tracking server-side, ajusto o funil técnico — e ainda opero a mídia. <strong>Tudo numa pessoa só, com o mesmo cérebro tomando decisão do início ao fim.</strong>
+            </p>
+            <p class="body-lg">
+              Trabalho sob o nome Sintonia Solutions e atendo online em todo Brasil.
+            </p>
+
+            <ul class="about-bullets">
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>+ R$ 100 mil/mês em mídia gerenciada</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Atuação em concessionária, porcelanato, infoprodutos, e-commerce e clínicas</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Desenvolvedor front-end (React/Next.js/TypeScript) e cientista de dados</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Especialista em tracking server-side e Conversion API</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Atendimento direto, sem intermediário</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         13. FAQ
+         ============================================================ -->
+    <section id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-head centered">
+          <span class="tag">Ficou alguma dúvida?</span>
+          <h2 id="faq-title" class="h1">Sua resposta provavelmente está aqui.</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-summary">
+              Quanto preciso ter de orçamento de mídia pra contratar a gestão?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </summary>
+            <div class="faq-answer">O mínimo é R$ 3 mil/mês em verba de anúncio. Abaixo disso, o leilão tem pouco volume pra coletar dado, e o trabalho não rende. Se você ainda não chegou nesse nível, a recomendação honesta é começar pela aula em grupo, aprender a estrutura, e me chamar pra gestão quando estiver pronto.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              Em quanto tempo eu vejo resultado?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </summary>
+            <div class="faq-answer">Depende do ponto de partida. Se sua estrutura técnica tá quebrada (pixel errado, sem tracking, landing fraca), os primeiros 30 dias são pra arrumar a casa. Resultado em performance de mídia começa a aparecer entre 45 e 90 dias com consistência. Quem promete resultado em 7 dias tá te vendendo loteria.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              Você trabalha com Google Ads ou só Meta Ads?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </summary>
+            <div class="faq-answer">Os dois. Meta Ads (Facebook + Instagram), Google Ads (Search, Display, YouTube, Performance Max) e configuração de tracking server-side pra ambos.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              As aulas são online ou presenciais?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </summary>
+            <div class="faq-answer">100% online, ao vivo via Google Meet. Aulas em grupo são semanais; particulares têm horário combinado com cada aluno. Todas as aulas ficam gravadas pra revisão posterior.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              Eu nunca mexi em mídia paga. Serve pra mim?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </summary>
+            <div class="faq-answer">Sim, principalmente a aula em grupo. O método é construído pra formar profissional desde a base — entender leilão, oferta, funil, pixel — até a operação avançada. Você não precisa saber nada antes de começar. Só precisa querer aprender com profundidade.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              Como funciona o pagamento?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </summary>
+            <div class="faq-answer">Aulas: Pix, cartão de crédito (até 10x) ou boleto. Gestão: contrato mensal com pagamento via boleto ou Pix, vencimento no início de cada ciclo.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              Você pega cliente do meu nicho se eu já tiver concorrente direto na carteira?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </summary>
+            <div class="faq-answer">Não. Trabalho com exclusividade por nicho dentro do mesmo recorte regional. Sua estratégia, seus criativos e seus dados ficam protegidos.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              Quanto tempo dura o acompanhamento?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </summary>
+            <div class="faq-answer">Gestão: mínimo de 90 dias, renovado mensalmente. Aula em grupo: ciclo fechado de 90 dias. Aula particular: mínimo de 3 meses, com renovação opcional.</div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary">
+              Posso migrar entre os serviços?
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </summary>
+            <div class="faq-answer">Sim. Muito aluno da turma em grupo evolui pra aula particular ou contrata a gestão depois. E vários clientes de gestão começaram fazendo uma das aulas primeiro pra entender se faz sentido.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         14. CTA FINAL
+         ============================================================ -->
+    <section class="final-cta" id="contato" aria-labelledby="contato-title">
+      <div class="container final-cta-inner">
+        <h2 id="contato-title" class="display-lg">
+          Tráfego pago é decisão. E decisão boa começa com conversa.
+        </h2>
+        <p class="body-lg" style="text-align:center;">
+          Me chama no WhatsApp. Sem formulário gigante, sem SDR, sem promessa de resultado mágico. Só uma conversa direta pra entender seu momento e te indicar o caminho.
+        </p>
+
+        <div class="final-cta-buttons">
+          <a class="btn btn-primary btn-lg" href="#" id="ctaWhats" rel="noopener" aria-label="Falar com Paulo no WhatsApp">
+            Falar com Paulo no WhatsApp
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          </a>
+        </div>
+
+        <ul class="social-list" role="list" aria-label="Redes sociais de Paulo Cesar">
+          <li>
+            <a class="social-link" href="https://www.instagram.com/trafego.paulocesar/" target="_blank" rel="noopener" aria-label="Instagram — @trafego.paulocesar (abre em nova aba)">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a class="social-link" href="https://www.facebook.com/trafego.paulocesar" target="_blank" rel="noopener" aria-label="Facebook — trafego.paulocesar (abre em nova aba)">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.24 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.77l-.44 2.91h-2.33V22C18.34 21.24 22 17.08 22 12.06z"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a class="social-link" href="https://www.linkedin.com/in/paulo-cesar-tech-mkt/" target="_blank" rel="noopener" aria-label="LinkedIn — Paulo Cesar (abre em nova aba)">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+
+        <p class="final-cta-note">
+          Resposta em até 24h em dias úteis · Sem compromisso · Atendimento direto comigo
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       RODAPÉ
+       ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-brand-mark">
+            <img class="brand-logo" src="logo sintonia atual.png" alt="Logo Sintonia Solutions" width="36" height="36" loading="lazy" />
+            Sintonia Solutions
+          </div>
+          <p class="footer-brand-tag">
+            Tráfego pago, mentoria e turmas com método e transparência. Paulo Cesar — atendimento online em todo Brasil.
+          </p>
+        </div>
+
+        <nav aria-labelledby="footer-services">
+          <h2 id="footer-services" class="footer-col-title">Serviços</h2>
+          <ul class="footer-list">
+            <li><a href="#investimento">Gestão de Tráfego Pago</a></li>
+            <li><a href="#investimento">Aula Particular 1:1</a></li>
+            <li><a href="#investimento">Turma em Grupo</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-labelledby="footer-content">
+          <h2 id="footer-content" class="footer-col-title">Conteúdo</h2>
+          <ul class="footer-list">
+            <li><a href="https://www.instagram.com/trafego.paulocesar/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="#" rel="noopener">YouTube</a></li>
+            <li><a href="#" rel="noopener">Portfolio</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-labelledby="footer-contact">
+          <h2 id="footer-contact" class="footer-col-title">Contato</h2>
+          <ul class="footer-list">
+            <li><a href="#contato">WhatsApp</a></li>
+            <li><a href="mailto:contato@sintoniasolutions.com.br">E-mail</a></li>
+            <li>Atendimento online em todo Brasil</li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© Sintonia Solutions · Paulo Cesar · CNPJ 50.815.689/0001-80 · Todos os direitos reservados</p>
+        <div class="footer-legal-links">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       STICKY CTA (mobile)
+       ============================================================ -->
+  <a class="sticky-cta" id="stickyCta" href="#contato" aria-label="Falar no WhatsApp">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+    Falar no WhatsApp
+  </a>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // ---------- WhatsApp deep-link com mensagem pré-formatada ----------
+      var WHATS_NUMBER = '5519999999999'; // Substituir pelo número real
+      var DEFAULT_MSG = 'Oi Paulo, vim pelo seu site e quero conversar.';
+
+      function buildWhatsUrl(message) {
+        return 'https://wa.me/' + WHATS_NUMBER + '?text=' + encodeURIComponent(message);
+      }
+
+      // Aplica o link em todos os CTAs que apontam pra #contato como ação direta
+      var whatsLinks = document.querySelectorAll('#ctaWhats, #stickyCta');
+      whatsLinks.forEach(function (el) {
+        el.href = buildWhatsUrl(DEFAULT_MSG);
+        el.target = '_blank';
+        el.rel = 'noopener';
+      });
+
+      // ---------- Menu mobile ----------
+      var toggle = document.getElementById('navToggle');
+      var menu = document.getElementById('mobileMenu');
+
+      if (toggle && menu) {
+        toggle.addEventListener('click', function () {
+          var open = menu.classList.toggle('is-open');
+          toggle.setAttribute('aria-expanded', String(open));
+          toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+        });
+
+        // Fecha o menu ao clicar em um link
+        menu.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            menu.classList.remove('is-open');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'Abrir menu');
+          });
+        });
+
+        // Fecha o menu com tecla Esc
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+            menu.classList.remove('is-open');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.focus();
+          }
+        });
+      }
+
+      // ---------- Header: estado sólido após o primeiro scroll ----------
+      var header = document.querySelector('.site-header');
+
+      // ---------- Sticky CTA mobile (após 50% de scroll) ----------
+      var sticky = document.getElementById('stickyCta');
+
+      function onScroll() {
+        // Header
+        if (header) {
+          if (window.scrollY > 8) {
+            header.classList.add('is-scrolled');
+          } else {
+            header.classList.remove('is-scrolled');
+          }
+        }
+
+        // Sticky CTA
+        if (sticky) {
+          var scrolled = window.scrollY + window.innerHeight;
+          var total = document.documentElement.scrollHeight;
+          var percent = scrolled / total;
+          if (percent > 0.5 && percent < 0.95) {
+            sticky.classList.add('is-visible');
+          } else {
+            sticky.classList.remove('is-visible');
+          }
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      // ---------- Reveal on scroll (IntersectionObserver) ----------
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var revealEls = document.querySelectorAll('.reveal');
+
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+      } else {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        revealEls.forEach(function (el) { io.observe(el); });
+      }
+
+      // ---------- FAQ: fecha um quando outro abre ----------
+      var faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(function (item) {
+        item.addEventListener('toggle', function () {
+          if (item.open) {
+            faqItems.forEach(function (other) {
+              if (other !== item && other.open) other.open = false;
+            });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

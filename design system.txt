@@ -1,0 +1,360 @@
+# Design System — Sintonia Solutions
+## Landing Page Paulo Cesar | Tráfego Pago + Aulas Particulares e em Grupo
+
+Base extraída da identidade visual Reliath AI, adaptada à brand do Paulo Cesar / Sintonia Solutions, com foco em **conversão de leads para fechamento de pacote**.
+
+---
+
+## 1. CORES
+
+### Paleta Principal
+
+| Nome | Hex | Uso |
+|---|---|---|
+| **Orange Sintonia** | `#E8621A` | Cor de assinatura, CTAs primários, destaques, ícones de ação |
+| **Orange Bright** | `#FF6208` | Hover de CTAs, glow effects, gradient stop |
+| **Raspberry Deep** | `#C30147` | Cor de acento, ícones outline em cards, gradient stop inicial |
+
+### Paleta Secundária (Gradientes)
+
+```css
+/* Gradient principal — hero, CTAs, destaques */
+--gradient-primary: linear-gradient(135deg, #C30147 0%, #E8621A 55%, #FF6208 100%);
+
+/* Gradient surface — fundo de cards premium */
+--gradient-surface: linear-gradient(180deg, rgba(232, 98, 26, 0.08) 0%, rgba(0, 0, 0, 0) 100%);
+
+/* Gradient radial — glow de hero */
+--gradient-glow: radial-gradient(ellipse at top, rgba(232, 98, 26, 0.25), transparent 70%);
+```
+
+### Paleta de Suporte (Neutras)
+
+| Nome | Hex | Uso |
+|---|---|---|
+| **Carbon** | `#0A0A0B` | Background do site (nível 0) |
+| **Pure Black** | `#000000` | Backgrounds de seção, contraste máximo |
+| **Deep Gray** | `#1F2123` | Background de cards, surfaces elevados |
+| **Border Subtle** | `rgba(255,255,255,0.08)` | Bordas de cards, divisores |
+| **White** | `#FFFFFF` | Texto principal, títulos hero |
+| **Smoke** | `#E5E5E5` | Texto secundário |
+| **Muted Gray** | `#71717A` | Texto terciário, captions, placeholders |
+
+### Cores Funcionais
+
+| Nome | Hex | Uso |
+|---|---|---|
+| Success | `#22C55E` | Confirmações, ícones de garantia, check marks |
+| Warning | `#F59E0B` | Avisos contextuais |
+| Error | `#EF4444` | Validação de formulário |
+| Info | `#3B82F6` | Tooltips |
+
+---
+
+## 2. TIPOGRAFIA
+
+### Fontes Recomendadas
+
+**Display (títulos grandes — hero e seções de virada)**
+- **Primária**: Cabinet Grotesk (Fontshare, gratuita)
+- **Alternativa**: Inter Display ou Space Grotesk (Google Fonts)
+- Característica: geométrica, pesos extremos (600–900), tracking apertado
+
+**Body (corpo de texto)**
+- **Primária**: Inter (Google Fonts)
+- **Alternativa**: Geist Sans (combina com stack Next.js/Vercel)
+- Característica: legível em qualquer tamanho, neutra, peso 400/500
+
+**Mono (detalhes técnicos, números de step, micro-tags)**
+- **JetBrains Mono** ou **Geist Mono**
+
+### Hierarquia
+
+| Token | Desktop | Mobile | Weight | Line-height | Letter-spacing | Uso |
+|---|---|---|---|---|---|---|
+| `display-xl` | 96px | 56px | 700 | 1.0 | -0.04em | Hero principal |
+| `display-lg` | 72px | 44px | 700 | 1.05 | -0.03em | Seções de virada |
+| `h1` | 56px | 36px | 700 | 1.1 | -0.02em | Títulos primários de seção |
+| `h2` | 40px | 28px | 600 | 1.15 | -0.02em | Subseções |
+| `h3` | 28px | 22px | 600 | 1.25 | -0.01em | Títulos de cards / pilares |
+| `h4` | 20px | 18px | 600 | 1.3 | 0 | Sub-cards, depoimentos |
+| `body-lg` | 18px | 16px | 400 | 1.6 | 0 | Lead paragraph (logo abaixo do H1) |
+| `body` | 16px | 15px | 400 | 1.6 | 0 | Corpo padrão |
+| `body-sm` | 14px | 13px | 400 | 1.5 | 0 | Caption, helper text |
+| `tag` | 12px | 12px | 500 | 1.0 | 0.08em (uppercase) | Pills, badges, labels de seção |
+
+### Regras de uso
+
+- Máximo 3 níveis hierárquicos visíveis na mesma seção
+- Headlines: aplicar `text-balance` (CSS) para quebra elegante
+- Body: `max-width` de 65ch para legibilidade
+- Mobile: reduzir tamanhos em ~40% mantendo proporção
+
+---
+
+## 3. COMPONENTES
+
+### Botões
+
+**Primário — CTA principal**
+```css
+background: linear-gradient(135deg, #E8621A 0%, #FF6208 100%);
+color: #FFFFFF;
+font-weight: 600;
+font-size: 16px;
+padding: 16px 32px;
+border-radius: 9999px;
+box-shadow: 0 8px 24px rgba(232, 98, 26, 0.35);
+transition: all 200ms ease;
+
+/* hover */
+transform: scale(1.02);
+box-shadow: 0 12px 32px rgba(232, 98, 26, 0.5);
+filter: brightness(1.1);
+
+/* active */
+transform: scale(0.98);
+```
+
+**Secundário — CTA alternativo**
+```css
+background: transparent;
+border: 1px solid rgba(255, 255, 255, 0.15);
+color: #FFFFFF;
+font-weight: 500;
+padding: 16px 32px;
+border-radius: 9999px;
+
+/* hover */
+border-color: #E8621A;
+background: rgba(232, 98, 26, 0.08);
+```
+
+**Ghost — links de menu e ações sutis**
+```css
+background: transparent;
+color: #E5E5E5;
+font-weight: 500;
+padding: 12px 20px;
+
+/* hover */
+color: #E8621A;
+```
+
+### Inputs (formulário de contato)
+
+```css
+background: rgba(255, 255, 255, 0.04);
+border: 1px solid rgba(255, 255, 255, 0.08);
+border-radius: 12px;
+padding: 16px 20px;
+color: #FFFFFF;
+font-size: 16px;
+transition: all 200ms ease;
+
+/* placeholder */
+color: #71717A;
+
+/* focus */
+border-color: #E8621A;
+box-shadow: 0 0 0 3px rgba(232, 98, 26, 0.15);
+outline: none;
+
+/* error */
+border-color: #EF4444;
+box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+```
+
+**Label**: acima do input, `#E5E5E5`, `14px`, `weight 500`, gap de `8px`
+
+### Cards
+
+**Card Padrão** (pilares, "para quem é", diferenciais)
+```css
+background: linear-gradient(180deg, #1F2123 0%, #0A0A0B 100%);
+border: 1px solid rgba(232, 98, 26, 0.12);
+border-radius: 20px;
+padding: 32px;
+box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+transition: all 300ms ease;
+
+/* hover */
+border-color: rgba(232, 98, 26, 0.4);
+transform: translateY(-4px);
+box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5),
+            inset 0 0 60px rgba(232, 98, 26, 0.05);
+```
+
+**Card Premium** (plano destacado na seção de pricing)
+```css
+background: linear-gradient(135deg, rgba(195, 1, 71, 0.08) 0%, rgba(232, 98, 26, 0.12) 100%);
+border: 1px solid #E8621A;
+border-radius: 24px;
+padding: 40px;
+box-shadow: 0 16px 48px rgba(232, 98, 26, 0.25);
+position: relative;
+
+/* badge "Mais Popular" no topo */
+/* pill #E8621A, texto branco, posição absoluta -16px do topo */
+```
+
+**Card Depoimento**
+```css
+background: #1F2123;
+border: 1px solid rgba(255, 255, 255, 0.05);
+border-radius: 16px;
+padding: 24px;
+/* avatar: 48px circle, borda sutil laranja */
+/* aspas decorativas grandes em #E8621A no topo */
+```
+
+### Pills / Badges / Tags de seção
+
+```css
+background: rgba(232, 98, 26, 0.08);
+border: 1px solid rgba(232, 98, 26, 0.2);
+color: #E8621A;
+font-size: 12px;
+font-weight: 500;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+padding: 6px 14px;
+border-radius: 9999px;
+/* ícone opcional à esquerda 14px */
+```
+
+### Navegação flutuante (bottom nav — referência Reliath)
+
+```css
+position: fixed;
+bottom: 24px;
+left: 50%;
+transform: translateX(-50%);
+background: rgba(15, 15, 17, 0.85);
+backdrop-filter: blur(20px);
+border: 1px solid rgba(255, 255, 255, 0.08);
+border-radius: 9999px;
+padding: 8px;
+z-index: 50;
+
+/* item ativo */
+background: #E8621A;
+color: white;
+padding: 8px 16px;
+border-radius: 9999px;
+```
+
+---
+
+## 4. ESTÉTICA
+
+### Border-Radius (sistema)
+
+| Token | Valor | Uso |
+|---|---|---|
+| `radius-sm` | 6px | Mini elementos, tags inline |
+| `radius-md` | 12px | Inputs, botões pequenos |
+| `radius-lg` | 16px | Cards de depoimento |
+| `radius-xl` | 20px | Cards padrão |
+| `radius-2xl` | 24px | Cards premium / pricing |
+| `radius-3xl` | 32px | Containers especiais |
+| `radius-full` | 9999px | Botões CTA, pills, nav flutuante |
+
+### Sombras
+
+| Token | Valor | Uso |
+|---|---|---|
+| `shadow-sm` | `0 2px 8px rgba(0,0,0,0.2)` | Hover sutil |
+| `shadow-md` | `0 4px 16px rgba(0,0,0,0.3)` | Cards padrão |
+| `shadow-lg` | `0 8px 32px rgba(0,0,0,0.4)` | Cards elevados |
+| `shadow-glow` | `0 8px 24px rgba(232, 98, 26, 0.35)` | Botões CTA primário |
+| `shadow-glow-strong` | `0 16px 48px rgba(232, 98, 26, 0.5)` | Hover de CTA principal |
+| `shadow-inner-glow` | `inset 0 0 60px rgba(232, 98, 26, 0.08)` | Cards premium e hover |
+
+### Espaçamento (sistema base 4px)
+
+Tokens: `4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96, 128, 160`
+
+**Padrões de seção:**
+- Padding vertical de seção: `96px` desktop / `64px` mobile
+- Padding horizontal container: `48px` desktop / `24px` mobile
+- Container max-width: `1280px`
+- Gap entre cards: `24px` desktop / `16px` mobile
+- Gap entre seções internas: `48px`
+- Gap label → input: `8px`
+- Gap entre campos de formulário: `20px`
+
+### Grid
+
+- **Desktop**: 12 colunas, gutter 24px
+- **Mobile**: 4 colunas, gutter 16px
+- **Tablet (768–1024px)**: 8 colunas, gutter 20px
+
+### Texturas e efeitos de fundo
+
+- **Glow radial laranja**: hero section, no topo central, opacidade 25–30%
+- **Grid pattern sutil**: opacidade 3–5% nas seções de pilares (referência Reliath)
+- **Noise texture**: opcional, opacity 2% nos backgrounds gradient
+- **Particles luminosas**: efeito de poeira em seções de transição
+- **Animação**: micro-interações em hover, evitar parallax pesado (custo de performance)
+
+---
+
+## 5. PRINCÍPIOS DE UX PARA CONVERSÃO
+
+A landing inteira gira em torno de uma única decisão: **fazer o visitante entrar em contato e fechar pacote**. Cada componente acima serve essa missão.
+
+### Hierarquia de CTAs
+
+1. **Hero CTA** — o elemento mais brilhante da tela, sempre acima da dobra
+2. **CTAs intermediários** — 1 por seção principal (Pilares, Para quem é, Garantia, Pricing)
+3. **CTA final** — largo, contrastante, com urgência implícita ("Falar agora", "Garantir vaga")
+
+### Formulário de contato (a peça mais importante)
+
+Estrutura mínima e direta:
+- **Nome** (obrigatório)
+- **WhatsApp** (obrigatório, com máscara)
+- **Qual serviço quero** (radio com 3 opções: Gestão de Tráfego / Aula Particular / Aula em Grupo)
+- **Mensagem** (opcional)
+
+Botão envia direto pra link de WhatsApp com mensagem pré-formatada OU dispara webhook + redirect pra agradecimento. Validação inline, sem reload, confirmação visual clara após envio.
+
+### Microcopy estratégica
+
+- Botões usam **verbos de ação no presente** orientados ao resultado do cliente
+  - ✅ "Quero fechar pacote", "Agendar diagnóstico", "Garantir minha vaga"
+  - ❌ "Enviar", "Saiba mais", "Clique aqui"
+- Subtextos abaixo de CTAs aliviam objeção: "Sem compromisso · Resposta em até 24h"
+- Headlines vendem transformação, não feature
+
+### Princípios técnicos
+
+- **LCP < 1.5s** — Next.js Image, fontes com `font-display: swap`, lazy loading abaixo da dobra
+- **Sticky CTA mobile** após scroll de 50% — botão flutuante "Falar no WhatsApp"
+- **Smooth scroll** entre âncoras (Hero → Problema → Pilares → Pricing → Contato)
+- **Mobile-first** — ~70% do tráfego pago chega por mobile
+- **Open Graph + Twitter Card** configurados para compartilhamento
+- **GA4 + Meta Pixel** com eventos de scroll, clique em CTA, envio de form
+- **Acessibilidade**: contraste mínimo AA, focus visível, navegação por teclado
+
+---
+
+## REFERÊNCIAS VISUAIS
+
+- **Identidade Reliath AI** — Vadym S. (Behance/Dribbble)
+- **Brand existente Sintonia**: Orange `#E8621A` (já em uso na portfolio Next.js)
+- **Estrutura de conversão**: Conversão Extrema (Tiago Tessmann)
+
+---
+
+## STACK SUGERIDA PARA IMPLEMENTAÇÃO
+
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS v4 com tokens customizados
+- **Tipografia**: Cabinet Grotesk via Fontshare + Inter via `next/font/google`
+- **Ícones**: Lucide React (outline style — bate com a referência)
+- **Animação**: Framer Motion (entradas suaves de seção)
+- **Form**: React Hook Form + Zod (validação) → webhook ou redirect WhatsApp
+- **Analytics**: GA4 + Meta Pixel + eventos customizados
+- **Deploy**: Vercel

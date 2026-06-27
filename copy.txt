@@ -1,0 +1,448 @@
+# Copy — Landing Page Sintonia Solutions
+## Paulo Cesar | Gestão de Tráfego Pago + Aulas Particulares e em Grupo
+
+Estrutura baseada no Conversão Extrema, adaptada para os 3 serviços. Tom: Sage + Magician — método, profundidade e atitude. Zero hype barato.
+
+---
+
+## 1. HERO
+
+**Tag pequena (pill acima do título):**
+`Gestão de Tráfego · Aulas 1:1 · Turmas em Grupo`
+
+**Headline (display-xl):**
+> Tráfego pago não é mágica. É raciocínio aplicado aos dados certos.
+
+**Subheadline (body-lg):**
+> Gestão de campanhas, mentoria individual e turmas em grupo com método, transparência e infraestrutura técnica de verdade. Para empresas que cansaram de queimar verba — e profissionais que querem dominar a mídia paga sem atalhos.
+
+**CTA principal:**
+`Quero conversar no WhatsApp` →
+
+**CTA secundário:**
+`Conhecer os serviços` ↓
+
+**Faixa de prova social abaixo dos botões:**
+> +R$ 100 mil/mês em mídia gerenciada · Clientes em real estate, porcelanato, infoprodutos e e-commerce · Atendimento direto, sem intermediário
+
+---
+
+## 2. MICRO GARANTIAS (3 cards horizontais)
+
+**Card 1 — Atendimento direto**
+> Quem fala com você é quem opera a campanha. Sem SDR, sem gestor júnior, sem repassar pra equipe terceirizada.
+
+**Card 2 — Diagnóstico gratuito**
+> Antes de qualquer proposta, eu olho sua estrutura atual e te falo o que tá funcionando, o que tá quebrado e onde tem dinheiro saindo pela porta dos fundos.
+
+**Card 3 — Transparência total**
+> Você tem acesso a tudo: conta de anúncios, relatórios, decisões. Não tem caixa-preta. Tráfego é dado — e dado é seu.
+
+---
+
+## 3. PROBLEMA / VIRADA
+
+**Tag de seção:**
+`O verdadeiro problema`
+
+**Headline (display-lg):**
+> Você não precisa de mais um anúncio bonito. Precisa de uma estrutura que vende.
+
+**Corpo do texto:**
+> A maioria das empresas que me procuram já gastou três, cinco, dez mil reais com gestores que prometeram resultado e entregaram print de impressões.
+>
+> O problema quase nunca é o criativo. É a base.
+>
+> Quando o pixel tá instalado errado, o público é genérico, a landing page não converte e ninguém olha pros dados com cabeça — qualquer campanha vira loteria.
+>
+> **Tráfego pago bem feito começa muito antes do anúncio.** Começa em entender o negócio, mapear o funil, montar a infraestrutura técnica e só depois apertar o play. É isso que separa quem investe de quem aposta.
+
+**Imagem sugerida:** sua foto ao lado, em mood profissional, fundo dark, vestindo algo que comunique seniority (sem polo de palestrante, sem boné de influencer).
+
+---
+
+## 4. O QUE É A SINTONIA SOLUTIONS
+
+**Tag de seção:**
+`Conheça`
+
+**Headline:**
+> Uma operação de tráfego pago construída sobre método, dados e backoffice técnico.
+
+**Corpo:**
+> A Sintonia Solutions é o que acontece quando você junta gestão de tráfego pago com domínio de desenvolvimento front-end e tracking server-side na mesma pessoa.
+>
+> Para empresas, isso significa um gestor que entende tanto o leilão do Meta quanto o código da sua landing page — e que toma decisão olhando pro funil inteiro, não só pro painel de anúncios.
+>
+> Para quem quer aprender, significa aulas construídas pra formar profissional que pensa, não pra criar mais um copiador de tutorial do YouTube.
+>
+> **Três frentes. Um único princípio: tráfego é raciocínio, não é mágica.**
+
+---
+
+## 5. DIFERENCIAIS (4 cards em grid 2x2)
+
+**Tag de seção:**
+`O que muda aqui`
+
+**Card 1 — Tráfego + Desenvolvimento na mesma cabeça**
+> Pixel mal instalado, evento sem disparar, landing sem otimização. Esses são os principais gargalos invisíveis de qualquer operação de tráfego — e a maioria dos gestores não sabe resolver. Eu sei. E resolvo dentro do escopo.
+
+**Card 2 — Tracking server-side de verdade**
+> Não é só Pixel no Google Tag Manager. É Conversion API, deduplicação, eventos enriquecidos e atribuição limpa. O que separa quem mede certo de quem mede pela metade.
+
+**Card 3 — Um cliente por nicho**
+> Não pego dois concorrentes diretos ao mesmo tempo. Sua estratégia, seus dados e seus criativos ficam exclusivos seus.
+
+**Card 4 — Acompanhamento sem terceirização**
+> Você fala comigo. Eu opero a conta. Eu olho os dados. Eu te ligo quando tem decisão pra tomar. Sem repassar pra equipe júnior, sem fila de atendimento.
+
+---
+
+## 6. PILARES DO MÉTODO (4 blocos com ícone + título + bullets)
+
+**Tag de seção:**
+`Como funciona`
+
+**Headline da seção:**
+> Não é mentoria de fórmula pronta. Não é gestão de "deixa que eu faço". É um método de quatro pilares.
+
+### Pilar 1 — Estratégia antes de mídia
+- Diagnóstico completo do negócio, oferta e funil atual
+- Definição de público-alvo, ICP e posicionamento da oferta
+- Estruturação de objetivos mensuráveis (CPL, ROAS, CAC)
+- Mapeamento das objeções reais do mercado
+
+### Pilar 2 — Infraestrutura técnica
+- Instalação e auditoria de Pixel + Conversion API
+- Configuração de eventos enriquecidos e deduplicação
+- Construção ou auditoria de landing pages focadas em conversão
+- GTM, GA4, UTMs limpas e atribuição confiável
+
+### Pilar 3 — Mídia comprada com cabeça
+- Estrutura de campanha por etapa de funil (topo, meio, fundo)
+- Criativos testados em ciclos curtos com hipótese clara
+- Escalonamento por orçamento, não por aposta
+- Otimização baseada em dado, não em achismo
+
+### Pilar 4 — Análise e decisão semanal
+- Relatório semanal com leitura estratégica, não só números
+- Reuniões quinzenais (gestão) ou aulas estruturadas (mentoria)
+- Decisão clara de continuidade, pausa ou pivô
+- Histórico de decisões documentado pra você acompanhar a evolução
+
+---
+
+## 7. CTA INTERMEDIÁRIO
+
+**Frase de impacto (h2):**
+> Se você quer parar de queimar verba e começar a investir com inteligência, é aqui.
+
+**Botão:**
+`Quero falar agora` →
+
+---
+
+## 8. PARA QUEM É
+
+**Tag de seção:**
+`É pra você se`
+
+**Headline:**
+> Três caminhos. Cada um pra um momento diferente.
+
+### Coluna 1 — Você quer terceirizar (Gestão de Tráfego)
+> Você tem empresa, tem orçamento de mídia (a partir de R$ 3 mil/mês), e quer um gestor que toma conta da operação inteira sem você precisar entender de pixel, leilão ou copy. Você quer um parceiro que pensa junto, reporta com clareza e responde quando você chama.
+
+**Avatares atendidos:**
+- Negócio local com loja física (clínicas, óticas, restaurantes)
+- E-commerce em busca de escala
+- Empresa de serviços (advogados, contadores, arquitetos)
+- Real estate (corretores e imobiliárias)
+- Infoprodutor em busca de previsibilidade
+
+### Coluna 2 — Você quer aprender com profundidade (Aula Particular)
+> Você não quer mais um curso gravado. Quer alguém que olhe pra SUA conta, pra SEU mercado, pro SEU funil — e te ensine fazendo, com a sua realidade na mesa. Encontros 1:1 ao vivo, com método, tarefas entre as aulas e cobrança real de evolução.
+
+**Avatares atendidos:**
+- Gestor de tráfego iniciante que quer pular a curva de erro
+- Empreendedor que quer rodar a própria mídia com competência
+- Profissional em transição de carreira pra marketing digital
+- Pequeno time interno de marketing que precisa de aceleração
+
+### Coluna 3 — Você quer aprender com comunidade (Aula em Grupo)
+> Turma fechada com até 10 pessoas. Aulas ao vivo semanais, comunidade ativa pra trocar campanha real, e o conteúdo completo gravado pra revisar quando quiser. Pra quem aprende melhor vendo problemas reais sendo resolvidos coletivamente.
+
+**Avatares atendidos:**
+- Quem tá começando do zero e quer ambiente de aprendizado coletivo
+- Profissional autônomo que quer formar repertório vendo cases de outros nichos
+- Empreendedor com investimento mais enxuto que quer dominar a operação
+- Quem busca rede de contatos qualificada no mercado de tráfego
+
+---
+
+## 9. DEPOIMENTOS (cards com foto + nome + nicho + frase)
+
+**Tag de seção:**
+`Quem trabalhou comigo`
+
+**Headline:**
+> Resultado real, de cliente real. Sem print fabricado.
+
+*[Placeholder pros depoimentos — preencher com casos reais quando publicar]*
+
+**Depoimento 1**
+> "O Paulo entrou e a primeira coisa que ele fez foi auditar minha estrutura. Ajustou o pixel, montou tracking server-side e refez minha landing. Só com isso, antes mesmo de mexer em anúncio, meu custo por lead caiu 40%."
+> — **Sérgio**, Corretor de Imóveis
+
+**Depoimento 2**
+> "Eu já tinha trocado de gestor três vezes. Com o Paulo, em 60 dias a operação tava previsível. A diferença é que ele explica o porquê de cada decisão. Eu finalmente entendo o que tá acontecendo no meu marketing."
+> — **SG Brasil Porcelanato**, Indústria
+
+**Depoimento 3**
+> "Fiz a aula particular durante 3 meses. Hoje eu rodo a mídia da minha empresa sozinho, com método. Não preciso mais terceirizar nada de tráfego."
+> — **Aluno**, Empreendedor
+
+**Depoimento 4**
+> "A turma em grupo é o melhor ambiente de aprendizado que já vi. As aulas ao vivo são densas, mas a comunidade é o diferencial — todo dia tem alguém compartilhando teste, criativo, dado real."
+> — **Aluno**, Gestor de Tráfego em formação
+
+*[Adicionar 4 a 8 depoimentos no total. Sempre com foto, nome, nicho/cargo e frase de resultado mensurável quando possível.]*
+
+---
+
+## 10. GARANTIA
+
+**Tag de seção:**
+`Risco baixo`
+
+**Headline:**
+> Você não fecha contrato no escuro.
+
+**Corpo:**
+> **Gestão de Tráfego:** trabalho com contrato de 90 dias com escopo claro, marcos definidos e cláusula de saída. Se em 30 dias você não enxergar evolução estrutural na operação (não estou falando de venda mágica — estou falando de estrutura saneada, dados confiáveis, decisão fundamentada), você sai sem multa.
+>
+> **Aulas Particulares e em Grupo:** garantia incondicional de 7 dias. Se nas duas primeiras aulas você sentir que não é pra você, devolvo 100% do valor. Sem pergunta, sem burocracia.
+
+**Reforço visual:**
+`Selo "7 dias de garantia"` para aulas + `Selo "Contrato com cláusula de saída"` para gestão
+
+---
+
+## 11. PRECIFICAÇÃO (3 cards lado a lado)
+
+**Tag de seção:**
+`Investimento`
+
+**Headline:**
+> Escolha o caminho. O método é o mesmo nos três.
+
+### Card 1 — Gestão de Tráfego Pago
+
+**Badge:** Sob consulta
+
+**Subtítulo:** Operação completa de mídia paga
+
+**O que está incluso:**
+- Diagnóstico inicial gratuito
+- Setup técnico (pixel, CAPI, GTM, GA4)
+- Gestão de Meta Ads e Google Ads
+- Auditoria ou construção de landing page
+- Relatório semanal com leitura estratégica
+- Reuniões quinzenais
+- Atendimento direto via WhatsApp
+
+**Valor:** A partir de **R$ 2.000/mês**
+**Mínimo de investimento em mídia:** R$ 2.000/mês
+
+**CTA:** `Quero diagnóstico gratuito` →
+
+---
+
+### Card 2 — Aula em Grupo
+
+**Badge:** Mais popular
+
+**Subtítulo:** Ciclo de 90 dias · até 10 alunos por turma
+
+**O que está incluso:**
+- 12 aulas ao vivo semanais (2h cada)
+- Conteúdo completo gravado para revisão
+- Comunidade ativa de alunos
+- Análise de cases reais a cada aula
+- Suporte direto durante o ciclo
+- Templates, prompts e materiais de apoio
+- Certificado de conclusão
+
+**Valor:** **10x de R$ 29,70** ou **R$ 297 à vista**
+
+**CTA:** `Garantir minha vaga` →
+
+---
+
+### Card 3 — Aula Particular
+
+**Badge:** Atendimento exclusivo
+
+**Subtítulo:** Mentoria 1:1 com agenda flexível
+
+**O que está incluso:**
+- Encontros semanais de 90 minutos
+- Plano de aprendizagem desenhado pra sua realidade
+- Análise da sua conta e operação a cada encontro
+- Tarefas estruturadas entre as aulas
+- Suporte direto entre os encontros
+- Acesso a todo o material da turma em grupo
+- Mínimo de 3 meses
+
+**Valor:** **A partir de R$ 497/mês**
+
+**CTA:** `Quero conversar` →
+
+---
+
+**Texto abaixo dos cards:**
+> Não sabe qual caminho serve pra você agora? Me chama no WhatsApp que eu te ajudo a decidir — sem compromisso.
+
+---
+
+## 12. SOBRE PAULO CESAR
+
+**Tag:** `Quem te atende`
+
+**Headline:**
+> Paulo Cesar — gestor de tráfego, cientista de dados e desenvolvedor front-end. Não vendo mágica. Vendo método.
+
+**Corpo:**
+> Atuo há 8 anos no marketing digital, com mais de R$ 100 mil/mês em mídia gerenciada já passados por contas em concessionária, indústria de porcelanato, infoprodutos, clínicas e e-commerce.
+>
+> Minha formação é diferente da média do mercado: além de gestor de tráfego com domínio em Meta Ads e Google Ads, sou desenvolvedor front-end (React, Next.js, TypeScript). Isso significa que eu monto a landing, instalo o tracking server-side, ajusto o funil técnico — e ainda opero a mídia. **Tudo numa pessoa só, com o mesmo cérebro tomando decisão do início ao fim.**
+>
+> Trabalho sob o nome Sintonia Solutions e atendo presencial em Rio Claro/SP ou online pra todo Brasil.
+
+**Bullets de autoridade:**
+- + R$ 100 mil/mês em mídia gerenciada
+- Atuação em concessionária, porcelanato, infoprodutos, e-commerce e clínicas
+- Desenvolvedor front-end (React/Next.js/TypeScript) e cientista de dados
+- Especialista em tracking server-side e Conversion API
+- Atendimento direto, sem intermediário
+
+**Foto sugerida:** retrato profissional, fundo dark, mood sério (não sorrindo de polo branco). Algo entre o "engenheiro" e o "estrategista".
+
+---
+
+## 13. FAQ
+
+**Tag:** `Ficou alguma dúvida?`
+
+**Headline:**
+> Sua resposta provavelmente está aqui.
+
+---
+
+**P: Quanto preciso ter de orçamento de mídia pra contratar a gestão?**
+R: O mínimo é R$ 3 mil/mês em verba de anúncio. Abaixo disso, o leilão tem pouco volume pra coletar dado, e o trabalho não rende. Se você ainda não chegou nesse nível, a recomendação honesta é começar pela aula em grupo, aprender a estrutura, e me chamar pra gestão quando estiver pronto.
+
+**P: Em quanto tempo eu vejo resultado?**
+R: Depende do ponto de partida. Se sua estrutura técnica tá quebrada (pixel errado, sem tracking, landing fraca), os primeiros 30 dias são pra arrumar a casa. Resultado em performance de mídia começa a aparecer entre 45 e 90 dias com consistência. Quem promete resultado em 7 dias tá te vendendo loteria.
+
+**P: Você trabalha com Google Ads ou só Meta Ads?**
+R: Os dois. Meta Ads (Facebook + Instagram), Google Ads (Search, Display, YouTube, Performance Max) e configuração de tracking server-side pra ambos.
+
+**P: As aulas são online ou presenciais?**
+R: 100% online, ao vivo via Google Meet. Aulas em grupo são semanais; particulares têm horário combinado com cada aluno. Todas as aulas ficam gravadas pra revisão posterior.
+
+**P: Eu nunca mexi em mídia paga. Serve pra mim?**
+R: Sim, principalmente a aula em grupo. O método é construído pra formar profissional desde a base — entender leilão, oferta, funil, pixel — até a operação avançada. Você não precisa saber nada antes de começar. Só precisa querer aprender com profundidade.
+
+**P: Tem garantia?**
+R: Tem. Aulas têm 7 dias de garantia incondicional. Gestão tem contrato com cláusula de saída e marcos claros nos primeiros 30 dias.
+
+**P: Como funciona o pagamento?**
+R: Aulas: Pix, cartão de crédito (até 10x) ou boleto. Gestão: contrato mensal com pagamento via boleto ou Pix, vencimento no início de cada ciclo.
+
+**P: Você pega cliente do meu nicho se eu já tiver concorrente direto na carteira?**
+R: Não. Trabalho com exclusividade por nicho dentro do mesmo recorte regional. Sua estratégia, seus criativos e seus dados ficam protegidos.
+
+**P: Quanto tempo dura o acompanhamento?**
+R: Gestão: mínimo de 90 dias, renovado mensalmente. Aula em grupo: ciclo fechado de 90 dias. Aula particular: mínimo de 3 meses, com renovação opcional.
+
+**P: Posso migrar entre os serviços?**
+R: Sim. Muito aluno da turma em grupo evolui pra aula particular ou contrata a gestão depois. E vários clientes de gestão começaram fazendo uma das aulas primeiro pra entender se faz sentido.
+
+---
+
+## 14. CTA FINAL
+
+**Headline (display-lg):**
+> Tráfego pago é decisão. E decisão boa começa com conversa.
+
+**Subheadline:**
+> Me chama no WhatsApp. Sem formulário gigante, sem SDR, sem promessa de resultado mágico. Só uma conversa direta pra entender seu momento e te indicar o caminho.
+
+**CTA primário:**
+`Falar com Paulo no WhatsApp` →
+
+**CTA secundário:**
+`Conhecer no Instagram @trafego.paulocesar`
+
+**Reforço pequeno embaixo:**
+> Resposta em até 24h em dias úteis · Sem compromisso · Atendimento direto comigo
+
+---
+
+## RODAPÉ
+
+**Logo Sintonia Solutions**
+
+**Coluna 1 — Serviços**
+- Gestão de Tráfego Pago
+- Aula Particular 1:1
+- Turma em Grupo
+
+**Coluna 2 — Conteúdo**
+- Instagram @trafego.paulocesar
+- YouTube
+- Portfolio (link externo)
+
+**Coluna 3 — Contato**
+- WhatsApp
+- E-mail
+- Rio Claro/SP — Atendimento online pra todo Brasil
+
+**Rodapé final:**
+> © Sintonia Solutions · Paulo Cesar · CNPJ 50.815.689/0001-80 · Todos os direitos reservados
+>
+> [Política de Privacidade] · [Termos de Uso]
+
+---
+
+## NOTAS DE EXECUÇÃO
+
+### Tokens em aberto que você precisa preencher antes de subir:
+- **Anos de atuação** (seção 12)
+- **Valor mínimo da gestão** (card 1, seção 11)
+- **Valor da turma em grupo** (card 2, seção 11)
+- **Valor da aula particular** (card 3, seção 11)
+- **Depoimentos reais** (seção 9) — com fotos, autorização e dados mensuráveis
+- **CNPJ** (rodapé)
+- **Links externos**: WhatsApp, Instagram, YouTube, portfolio
+
+### Variações por canal
+- Mesmo copy serve pra meta ads pra essa landing (canal pago).
+- Para tráfego orgânico de Instagram, considerar versão mais curta do hero com microcopy diferente.
+- Anúncio no Google Ads (search) → considerar landing variant focada SÓ em gestão (não dividir atenção com aulas).
+
+### Microcopy de WhatsApp pré-formatada (quando o lead clicar no CTA)
+
+**Para Gestão:**
+> Oi Paulo, vim pelo seu site. Quero conversar sobre gestão de tráfego pro meu negócio.
+
+**Para Aula Particular:**
+> Oi Paulo, vim pelo seu site. Quero saber mais sobre a aula particular de tráfego pago.
+
+**Para Aula em Grupo:**
+> Oi Paulo, vim pelo seu site. Quero saber mais sobre a turma em grupo de tráfego pago.
+
+**CTA genérico (hero e final):**
+> Oi Paulo, vim pelo seu site e quero conversar.
