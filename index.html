@@ -600,28 +600,53 @@
 
     .hero-proof {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px 24px;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      gap: 6px;
       max-width: 760px;
       margin-top: 8px;
+      text-align: center;
       color: var(--muted-gray);
       font-size: 14px;
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     .hero-proof span {
       display: inline-flex;
       align-items: center;
+      gap: 10px;
     }
 
-    .hero-proof span + span::before {
+    /* Mobile (padrão): bullet laranja no início de cada item */
+    .hero-proof span::before {
       content: '·';
-      margin-right: 24px;
-      margin-left: -16px;
       color: var(--orange-sintonia);
       font-weight: 700;
+      font-size: 24px;
+      line-height: 0.6;
+      flex-shrink: 0;
+    }
+
+    /* Desktop: layout em linha única com separador entre itens */
+    @media (min-width: 900px) {
+      .hero-proof {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px 0;
+      }
+
+      .hero-proof span {
+        gap: 0;
+      }
+
+      .hero-proof span:first-child::before {
+        display: none;
+      }
+
+      .hero-proof span::before {
+        margin: 0 14px;
+      }
     }
 
     /* Hero — força quebra: uma frase por linha em desktop */
@@ -1885,7 +1910,7 @@
 
         <p class="hero-proof" role="text">
           <span>+R$ 100 mil/mês em mídia gerenciada</span>
-          <span>Clientes em real estate, porcelanato, infoprodutos e e-commerce</span>
+          <span>Clientes em imóveis, porcelanato, infoprodutos e e-commerce</span>
           <span>Atendimento direto, sem intermediário</span>
         </p>
       </div>
@@ -1910,7 +1935,7 @@
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
             </div>
             <h3 class="h3">Diagnóstico gratuito</h3>
-            <p class="body">Antes de qualquer proposta, eu olho sua estrutura atual e te falo o que tá funcionando, o que tá quebrado e onde tem dinheiro saindo pela porta dos fundos.</p>
+            <p class="body">Antes de qualquer proposta, eu olho sua estrutura atual e te falo o que está funcionando, o que está quebrado e onde tem dinheiro saindo pela porta dos fundos.</p>
           </article>
 
           <article class="micro-card reveal">
@@ -1942,7 +1967,7 @@
               O problema quase nunca é o criativo. É a base.
             </p>
             <p class="body-lg">
-              Quando o pixel tá instalado errado, o público é genérico, a landing page não converte e ninguém olha pros dados com cabeça — qualquer campanha vira loteria.
+              Quando o pixel está instalado errado, o público é genérico, a landing page não converte e ninguém olha pros dados com cabeça — qualquer campanha vira loteria.
             </p>
             <p class="body-lg">
               <strong>Tráfego pago bem feito começa muito antes do anúncio.</strong> Começa em entender o negócio, mapear o funil, montar a infraestrutura técnica e só depois apertar o play. É isso que separa quem investe de quem aposta.
@@ -1970,13 +1995,13 @@
         <div class="section-head">
           <span class="tag">Conheça</span>
           <h2 id="servicos-title" class="h1">
-            Uma operação de tráfego pago construída sobre método, dados e backoffice técnico.
+            Uma operação de tráfego pago construída sobre método, dados e infraestrutura técnica.
           </h2>
         </div>
 
         <div class="intro-text">
           <p class="body-lg">
-            A Sintonia Solutions é o que acontece quando você junta gestão de tráfego pago com domínio de desenvolvimento front-end e tracking server-side na mesma pessoa.
+            A Sintonia Solutions é o que acontece quando você junta gestão de tráfego pago com domínio de desenvolvimento front-end e rastreamento via servidor (tracking server-side) na mesma pessoa.
           </p>
           <p class="body-lg">
             Para empresas, isso significa um gestor que entende tanto o leilão do Meta quanto o código da sua landing page — e que toma decisão olhando pro funil inteiro, não só pro painel de anúncios.
@@ -2005,7 +2030,7 @@
           <article class="diff-card reveal">
             <span class="diff-card-number" aria-hidden="true">01</span>
             <h3 class="h3">Tracking server-side de verdade</h3>
-            <p class="body">Não é só Pixel no Google Tag Manager. É Conversion API, deduplicação, eventos enriquecidos e atribuição limpa. O que separa quem mede certo de quem mede pela metade.</p>
+            <p class="body">Não é só Pixel no Google Tag Manager. É Conversion API (API de conversão do Meta), remoção de eventos duplicados, eventos com mais dados do cliente e atribuição limpa. O que separa quem mede certo de quem mede pela metade.</p>
           </article>
 
           <article class="diff-card reveal">
@@ -2048,7 +2073,7 @@
             </div>
             <ul class="pilar-list">
               <li>Diagnóstico completo do negócio, oferta e funil atual</li>
-              <li>Definição de público-alvo, ICP e posicionamento da oferta</li>
+              <li>Definição de público-alvo, ICP (perfil de cliente ideal) e posicionamento da oferta</li>
               <li>Estruturação de objetivos mensuráveis (CPL, ROAS, CAC)</li>
               <li>Mapeamento das objeções reais do mercado</li>
             </ul>
@@ -2066,9 +2091,9 @@
             </div>
             <ul class="pilar-list">
               <li>Instalação e auditoria de Pixel + Conversion API</li>
-              <li>Configuração de eventos enriquecidos e deduplicação</li>
+              <li>Configuração de eventos com mais dados do cliente e remoção de duplicatas</li>
               <li>Construção ou auditoria de landing pages focadas em conversão</li>
-              <li>GTM, GA4, UTMs limpas e atribuição confiável</li>
+              <li>Google Tag Manager (GTM), Google Analytics 4 (GA4), UTMs (parâmetros de rastreamento) limpas e atribuição confiável</li>
             </ul>
           </article>
 
@@ -2147,7 +2172,7 @@
               <ul class="audience-list">
                 <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Negócio local com loja física (clínicas, óticas, restaurantes)</li>
                 <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>E-commerce em busca de escala</li>
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Real estate (corretores e imobiliárias)</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Imóveis (corretores e imobiliárias)</li>
               </ul>
             </div>
           </article>
@@ -2175,7 +2200,7 @@
             <div>
               <p class="audience-list-title">Avatares atendidos</p>
               <ul class="audience-list">
-                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Quem tá começando do zero e quer ambiente de aprendizado coletivo</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Quem está começando do zero e quer ambiente de aprendizado coletivo</li>
                 <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Profissional autônomo que quer formar repertório vendo cases de outros nichos</li>
                 <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Empreendedor com investimento mais enxuto que quer dominar a operação</li>
               </ul>
@@ -2402,7 +2427,7 @@
             </div>
             <ul class="price-features">
               <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Diagnóstico inicial gratuito</li>
-              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Setup técnico (pixel, CAPI, GTM, GA4)</li>
+              <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Setup técnico (pixel, Conversion API, GTM, GA4)</li>
               <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Gestão de Meta Ads e Google Ads</li>
               <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Auditoria ou construção de landing page</li>
               <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Relatório semanal com leitura estratégica</li>
@@ -2503,7 +2528,7 @@
               Atuo há 8 anos no marketing digital, com mais de R$ 100 mil/mês em mídia gerenciada já passados por contas em concessionária, indústria de porcelanato, infoprodutos, clínicas e e-commerce.
             </p>
             <p class="body-lg">
-              Minha formação é diferente da média do mercado: além de gestor de tráfego com domínio em Meta Ads e Google Ads, sou desenvolvedor front-end (React, Next.js, TypeScript). Isso significa que eu monto a landing, instalo o tracking server-side, ajusto o funil técnico — e ainda opero a mídia. <strong>Tudo numa pessoa só, com o mesmo cérebro tomando decisão do início ao fim.</strong>
+              Minha formação é diferente da média do mercado: além de gestor de tráfego com domínio em Meta Ads e Google Ads, sou desenvolvedor front-end (React, Next.js, TypeScript). Isso significa que eu monto a landing page, instalo o tracking server-side, ajusto o funil técnico — e ainda opero a mídia. <strong>Tudo numa pessoa só, com o mesmo cérebro tomando decisão do início ao fim.</strong>
             </p>
             <p class="body-lg">
               Trabalho sob o nome Sintonia Solutions e atendo online em todo Brasil.
@@ -2545,7 +2570,7 @@
               Em quanto tempo eu vejo resultado?
               <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
             </summary>
-            <div class="faq-answer">Depende do ponto de partida. Se sua estrutura técnica tá quebrada (pixel errado, sem tracking, landing fraca), os primeiros 30 dias são pra arrumar a casa. Resultado em performance de mídia começa a aparecer entre 45 e 90 dias com consistência. Quem promete resultado em 7 dias tá te vendendo loteria.</div>
+            <div class="faq-answer">Depende do ponto de partida. Se sua estrutura técnica está quebrada (pixel errado, sem rastreamento, landing page fraca), os primeiros 30 dias são pra arrumar a casa. Resultado em performance de mídia começa a aparecer entre 45 e 90 dias com consistência. Quem promete resultado em 7 dias está te vendendo loteria.</div>
           </details>
 
           <details class="faq-item">
@@ -2577,7 +2602,7 @@
               Como funciona o pagamento?
               <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
             </summary>
-            <div class="faq-answer">Aulas: Pix, cartão de crédito (até 10x) ou boleto. Gestão: contrato mensal com pagamento via boleto ou Pix, vencimento no início de cada ciclo.</div>
+            <div class="faq-answer">Aulas: Pix ou cartão de crédito (até 10x). Gestão: contrato mensal com pagamento via Pix, vencimento no início de cada ciclo.</div>
           </details>
 
           <details class="faq-item">
