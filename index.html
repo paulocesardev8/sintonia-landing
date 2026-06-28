@@ -1843,16 +1843,21 @@
          ============================================================ -->
     <section class="hero" id="hero" aria-labelledby="hero-title">
       <video
+        id="heroVideo"
         class="hero-video-bg"
-        src="video hero lp.mp4"
         autoplay
         muted
         loop
         playsinline
+        webkit-playsinline
         preload="auto"
+        disablepictureinpicture
+        disableremoteplayback
         aria-hidden="true"
         tabindex="-1"
-      ></video>
+      >
+        <source src="video hero lp.mp4" type="video/mp4" />
+      </video>
       <div class="hero-overlay" aria-hidden="true"></div>
 
       <div class="container hero-inner">
@@ -2774,6 +2779,51 @@
           }
         });
       }
+
+      // ---------- Hero video: força autoplay e re-tenta em 1ª interação ----------
+      (function () {
+        var vid = document.getElementById('heroVideo');
+        if (!vid) return;
+
+        vid.muted = true; // garantia (browser pode ter cacheado mute=false)
+        vid.defaultMuted = true;
+        vid.setAttribute('muted', '');
+
+        var armedFallback = false;
+
+        var attemptPlay = function () {
+          var p = vid.play();
+          if (p && typeof p.then === 'function') {
+            p.catch(function () {
+              if (armedFallback) return;
+              armedFallback = true;
+              // Autoplay bloqueado pelo browser — re-tenta na 1ª interação
+              var resume = function () {
+                vid.play().catch(function () {});
+                document.removeEventListener('click', resume);
+                document.removeEventListener('touchstart', resume);
+                document.removeEventListener('scroll', resume);
+                document.removeEventListener('keydown', resume);
+              };
+              document.addEventListener('click', resume, { passive: true });
+              document.addEventListener('touchstart', resume, { passive: true });
+              document.addEventListener('scroll', resume, { passive: true });
+              document.addEventListener('keydown', resume);
+            });
+          }
+        };
+
+        // Tenta agora e em vários momentos do ciclo de carga do vídeo
+        attemptPlay();
+        vid.addEventListener('loadedmetadata', attemptPlay);
+        vid.addEventListener('canplay', attemptPlay);
+        vid.addEventListener('canplaythrough', attemptPlay);
+
+        // Se a aba voltar a ficar visível, garante que o vídeo está rolando
+        document.addEventListener('visibilitychange', function () {
+          if (!document.hidden && vid.paused) attemptPlay();
+        });
+      })();
 
       // ---------- Header: estado sólido após o primeiro scroll ----------
       var header = document.querySelector('.site-header');
