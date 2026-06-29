@@ -12,7 +12,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" />
+  </noscript>
 
   <style>
     /* ============================================================
@@ -39,7 +43,7 @@
       --border-subtle: rgba(255, 255, 255, 0.08);
       --white: #FFFFFF;
       --smoke: #E5E5E5;
-      --muted-gray: #71717A;
+      --muted-gray: #95959C;
 
       /* Funcionais */
       --success: #22C55E;
@@ -1920,8 +1924,9 @@
     <!-- ============================================================
          2. MICRO GARANTIAS
          ============================================================ -->
-    <section id="garantias" aria-label="Garantias de atendimento">
+    <section id="garantias" aria-labelledby="garantias-title">
       <div class="container">
+        <h2 id="garantias-title" class="sr-only">Garantias do atendimento</h2>
         <div class="micro-grid">
           <article class="micro-card reveal">
             <div class="micro-card-icon" aria-hidden="true">
