@@ -3459,6 +3459,8 @@
       // Aqui: eventos padrão (Lead/Contact/ViewContent) + custom.
       // Conversions API Gateway do Meta cobre o lado server sozinho.
       // ==========================================================
+      var META_PIXEL_ID = '425164433308044';
+
       function trackFb(name, params) {
         if (typeof window.fbq !== 'function') return;
         var standard = ['PageView', 'ViewContent', 'Lead', 'Contact',
@@ -3467,6 +3469,73 @@
         var method = standard.indexOf(name) !== -1 ? 'track' : 'trackCustom';
         try { window.fbq(method, name, params || {}); } catch (e) {}
       }
+
+      // -------- Advanced Matching helpers (SHA-256 lowercase hex) --------
+      // Meta EMQ sobe de ~6 pra ~9 quando os leads chegam com PII hasheada.
+      // Ativo apenas em HTTPS (window.crypto.subtle requer contexto seguro).
+
+      function _normText(s) {
+        return String(s == null ? '' : s)
+          .trim()
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[̀-ͯ]/g, ''); // remove acentos
+      }
+      function _normPhone(s) {
+        var d = String(s == null ? '' : s).replace(/\D+/g, '');
+        if (!d) return '';
+        if (d.length === 10 || d.length === 11) return '55' + d;
+        return d;
+      }
+      function _extractCity(str) {
+        // "São Paulo / SP" -> "sao paulo"
+        return _normText(String(str || '').split(/[\/\-]/)[0]);
+      }
+      function _extractState(str) {
+        // pega UF ao final ("São Paulo / SP" -> "sp"; "Rio - RJ" -> "rj")
+        var m = String(str || '').match(/\b([A-Za-z]{2})\b\s*$/);
+        return m ? m[1].toLowerCase() : '';
+      }
+      function sha256Hex(text) {
+        if (!text || !window.crypto || !window.crypto.subtle) {
+          return Promise.resolve('');
+        }
+        var buf = new TextEncoder().encode(String(text));
+        return window.crypto.subtle.digest('SHA-256', buf).then(function (hash) {
+          return Array.from(new Uint8Array(hash))
+            .map(function (b) { return b.toString(16).padStart(2, '0'); })
+            .join('');
+        }).catch(function () { return ''; });
+      }
+      function buildAdvancedMatching(payload) {
+        var em = _normText(payload.email);
+        var ph = _normPhone(payload.whatsapp);
+        var names = String(payload.nome || '').trim().split(/\s+/);
+        var fn = _normText(names[0] || '');
+        var ln = _normText(names.slice(1).join(' '));
+        var ct = _extractCity(payload.cidade);
+        var st = _extractState(payload.cidade);
+
+        return Promise.all([
+          sha256Hex(em), sha256Hex(ph),
+          sha256Hex(fn), sha256Hex(ln),
+          sha256Hex(ct), sha256Hex(st),
+          sha256Hex('br'),
+        ]).then(function (h) {
+          var am = {};
+          if (h[0]) { am.em = h[0]; am.external_id = h[0]; }
+          if (h[1]) am.ph = h[1];
+          if (h[2]) am.fn = h[2];
+          if (h[3]) am.ln = h[3];
+          if (h[4]) am.ct = h[4];
+          if (h[5]) am.st = h[5];
+          if (h[6]) am.country = h[6];
+          return am;
+        });
+      }
+      // Expõe pro submit handler
+      window.__buildAM = buildAdvancedMatching;
+      window.__metaPixelId = META_PIXEL_ID;
 
       // Mapa preço-por-serviço (usado em ClickPricing* e Lead)
       var pricingMap = {
@@ -3722,28 +3791,50 @@
                 label.textContent = originalLabel;
                 return;
               }
-              // Sucesso: feedback + Meta Pixel Lead + redireciona pro WhatsApp
+              // Sucesso: feedback + Meta Pixel Lead com Advanced Matching + redireciona
               status.className = 'lead-form-status is-success';
               status.textContent = '✓ Enviado. Abrindo WhatsApp…';
               label.textContent = 'Redirecionando…';
 
-              // Meta Pixel — Lead com value diferenciado (otimização de campanha)
-              try {
-                var lc = (window.__leadPricingMap || {})[payload.service]
-                       || { value: 0, label: payload.service };
-                if (typeof window.fbq === 'function') {
+              var lc = (window.__leadPricingMap || {})[payload.service]
+                     || { value: 0, label: payload.service };
+
+              var fireLead = function () {
+                if (typeof window.fbq !== 'function') return;
+                try {
                   window.fbq('track', 'Lead', {
                     content_name:     lc.label,
                     content_category: 'aula/mentoria',
                     value:            lc.value,
                     currency:         'BRL',
                   });
-                }
-              } catch (e) { /* silent */ }
+                } catch (e) { /* silent */ }
+              };
 
+              // Advanced Matching: hasheia PII (email/phone/nome/cidade/UF/país)
+              // e re-inicializa o pixel com esses dados — EMQ sobe de ~6 pra ~9,
+              // Meta consegue casar leads a perfis reais (lookalike melhor,
+              // CPA menor). Fallback silencioso se crypto não estiver disponível.
+              if (typeof window.fbq === 'function' && typeof window.__buildAM === 'function') {
+                window.__buildAM(payload)
+                  .then(function (am) {
+                    try {
+                      if (am && Object.keys(am).length) {
+                        window.fbq('init', window.__metaPixelId, am);
+                      }
+                    } catch (e) { /* silent */ }
+                    fireLead();
+                  })
+                  .catch(fireLead); // se hash falhar, dispara Lead sem AM
+              } else {
+                fireLead();
+              }
+
+              // Delay levemente maior (700ms) pra dar tempo do beacon do Meta
+              // sair antes do redirect pro WhatsApp
               window.setTimeout(function () {
                 window.location.href = res.data.whatsapp_url;
-              }, 500);
+              }, 700);
             })
             .catch(function () {
               status.className = 'lead-form-status is-error';
