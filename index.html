@@ -21,6 +21,23 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" />
   </noscript>
 
+  <!-- Meta Pixel Code (pixel 425164433308044 — AULAS/PRESTAÇÃO DE SERVIÇOS - TRÁFEGO)
+       Conversions API Gateway já conectado no lado do Meta, então
+       não precisamos de código server-side. -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '425164433308044');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" alt=""
+      src="https://www.facebook.com/tr?id=425164433308044&ev=PageView&noscript=1" />
+  </noscript>
+
   <style>
     /* ============================================================
        TOKENS
@@ -3437,6 +3454,134 @@
       });
 
       // ==========================================================
+      // META PIXEL — eventos custom pra otimização + públicos
+      // Base + PageView já disparados no <head>.
+      // Aqui: eventos padrão (Lead/Contact/ViewContent) + custom.
+      // Conversions API Gateway do Meta cobre o lado server sozinho.
+      // ==========================================================
+      function trackFb(name, params) {
+        if (typeof window.fbq !== 'function') return;
+        var standard = ['PageView', 'ViewContent', 'Lead', 'Contact',
+                        'CompleteRegistration', 'InitiateCheckout', 'Purchase',
+                        'Search', 'AddToCart', 'Subscribe', 'StartTrial'];
+        var method = standard.indexOf(name) !== -1 ? 'track' : 'trackCustom';
+        try { window.fbq(method, name, params || {}); } catch (e) {}
+      }
+
+      // Mapa preço-por-serviço (usado em ClickPricing* e Lead)
+      var pricingMap = {
+        aula_grupo:      { event: 'ClickPricingGrupo',      value: 997,  label: 'Aula em Grupo' },
+        aula_particular: { event: 'ClickPricingParticular', value: 1335, label: 'Aula Particular' },
+        consultoria:     { event: 'ClickConsultoria',       value: 397,  label: 'Consultoria Avulsa' },
+      };
+
+      // Expõe pro submit handler acima que dispara Lead ao enviar
+      window.__leadPricingMap = pricingMap;
+
+      // ViewContent nas seções principais (Investimento, Sobre, FAQ, Aulas)
+      var viewedSections = {};
+      var sectionsToTrack = {
+        investimento: 'Pricing',
+        sobre:        'Sobre Paulo',
+        faq:          'FAQ',
+        aulas:        'Aulas Reais',
+      };
+      if ('IntersectionObserver' in window) {
+        var secObs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var id = entry.target.id;
+            if (viewedSections[id] || !sectionsToTrack[id]) return;
+            viewedSections[id] = true;
+            trackFb('ViewContent', {
+              content_name: sectionsToTrack[id],
+              content_category: 'section',
+              content_ids: [id],
+            });
+          });
+        }, { threshold: 0.4 });
+        Object.keys(sectionsToTrack).forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) secObs.observe(el);
+        });
+      }
+
+      // Scroll milestones (50 / 75 / 100 %)
+      var scrollMarks = [50, 75, 100];
+      var scrollFired = {};
+      function trackScroll() {
+        var doc = document.documentElement;
+        var pct = Math.round(((window.scrollY + window.innerHeight) / doc.scrollHeight) * 100);
+        scrollMarks.forEach(function (m) {
+          if (pct >= m && !scrollFired[m]) {
+            scrollFired[m] = true;
+            trackFb('Scroll' + m + 'pct', { scroll_pct: m });
+          }
+        });
+      }
+      window.addEventListener('scroll', trackScroll, { passive: true });
+
+      // Engaged 60s (visitante ficou pelo menos 60s na página)
+      window.setTimeout(function () { trackFb('Engaged60s', {}); }, 60000);
+
+      // FAQ open — envia label da pergunta
+      faqItems.forEach(function (item) {
+        item.addEventListener('toggle', function () {
+          if (!item.open) return;
+          var q = item.querySelector('.faq-summary');
+          var text = q ? q.textContent.trim().split('\n')[0].slice(0, 80) : '';
+          trackFb('FAQOpen', { faq_question: text });
+        });
+      });
+
+      // Vídeo do hero: rodou pelo menos 3s
+      (function () {
+        var v = document.getElementById('heroVideo');
+        if (!v) return;
+        var fired = false;
+        v.addEventListener('timeupdate', function () {
+          if (!fired && v.currentTime >= 3) {
+            fired = true;
+            trackFb('VideoPlayed3s', { video: 'hero' });
+          }
+        });
+      })();
+
+      // Click nos CTAs de WhatsApp direto (evento padrão Contact)
+      document.querySelectorAll('#ctaWhats, #stickyCta, [data-whats-msg]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          trackFb('Contact', { content_name: 'WhatsApp', method: 'whatsapp' });
+        });
+      });
+
+      // Click nas redes sociais (Contact com método por rede)
+      document.querySelectorAll('.social-link').forEach(function (link) {
+        link.addEventListener('click', function () {
+          var href = String(link.href || '').toLowerCase();
+          var network = 'social';
+          if (href.indexOf('instagram') !== -1)     network = 'instagram';
+          else if (href.indexOf('facebook') !== -1) network = 'facebook';
+          else if (href.indexOf('linkedin') !== -1) network = 'linkedin';
+          trackFb('Contact', { content_name: 'Social', method: network });
+        });
+      });
+
+      // Click em abrir modal de pricing/consultoria — evento custom por serviço
+      document.querySelectorAll('[data-open-modal]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var svc = btn.getAttribute('data-open-modal');
+          var cfg = pricingMap[svc];
+          if (!cfg) return;
+          trackFb(cfg.event, {
+            content_name: cfg.label,
+            content_category: 'pricing',
+            value: cfg.value,
+            currency: 'BRL',
+          });
+        });
+      });
+
+      // ==========================================================
       // MODAIS DE QUALIFICAÇÃO (Grupo / Particular / Consultoria)
       // ==========================================================
 
@@ -3577,10 +3722,25 @@
                 label.textContent = originalLabel;
                 return;
               }
-              // Sucesso: feedback rápido e redireciona pro WhatsApp
+              // Sucesso: feedback + Meta Pixel Lead + redireciona pro WhatsApp
               status.className = 'lead-form-status is-success';
               status.textContent = '✓ Enviado. Abrindo WhatsApp…';
               label.textContent = 'Redirecionando…';
+
+              // Meta Pixel — Lead com value diferenciado (otimização de campanha)
+              try {
+                var lc = (window.__leadPricingMap || {})[payload.service]
+                       || { value: 0, label: payload.service };
+                if (typeof window.fbq === 'function') {
+                  window.fbq('track', 'Lead', {
+                    content_name:     lc.label,
+                    content_category: 'aula/mentoria',
+                    value:            lc.value,
+                    currency:         'BRL',
+                  });
+                }
+              } catch (e) { /* silent */ }
+
               window.setTimeout(function () {
                 window.location.href = res.data.whatsapp_url;
               }, 500);
