@@ -679,6 +679,323 @@
       object-fit: cover;
     }
 
+    /* ============================================================
+       CONSULTORIA — faixa abaixo dos cards de pricing
+       ============================================================ */
+    .consult-band {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(195, 1, 71, 0.08) 0%, rgba(232, 98, 26, 0.1) 100%);
+      border: 1px solid rgba(232, 98, 26, 0.35);
+      border-radius: var(--radius-2xl);
+      padding: 28px 32px;
+      transition: border-color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+    }
+
+    @media (min-width: 768px) {
+      .consult-band {
+        grid-template-columns: auto 1fr auto;
+        gap: 28px;
+        padding: 24px 36px;
+      }
+    }
+
+    .consult-band:hover {
+      border-color: var(--orange-sintonia);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg), var(--shadow-inner-glow);
+    }
+
+    .consult-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-md);
+      background: var(--gradient-cta);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-glow);
+      flex-shrink: 0;
+    }
+
+    .consult-copy { display: flex; flex-direction: column; gap: 6px; }
+
+    .consult-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--white);
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .consult-desc {
+      color: var(--smoke);
+      font-size: 14px;
+      line-height: 1.5;
+      max-width: 640px;
+    }
+
+    .consult-price {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    @media (min-width: 768px) {
+      .consult-price { align-items: flex-end; }
+    }
+
+    .consult-price-value {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--white);
+      font-size: 22px;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .consult-price-value span {
+      color: var(--muted-gray);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* ============================================================
+       MODAL DE QUALIFICAÇÃO (Lista de espera / mentoria / consultoria)
+       ============================================================ */
+    .lead-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      overflow-y: auto;
+    }
+
+    .lead-modal[hidden] { display: none; }
+
+    .lead-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 11, 0.78);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      cursor: pointer;
+    }
+
+    .lead-modal-card {
+      position: relative;
+      background: linear-gradient(180deg, #1F2123 0%, #131416 100%);
+      border: 1px solid rgba(232, 98, 26, 0.3);
+      border-radius: var(--radius-2xl);
+      padding: 32px 28px 28px;
+      width: 100%;
+      max-width: 560px;
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5), 0 0 80px rgba(232, 98, 26, 0.12);
+      animation: modalIn 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0)  scale(1); }
+    }
+
+    .lead-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--smoke);
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 200ms, color 200ms, border-color 200ms;
+    }
+    .lead-modal-close:hover,
+    .lead-modal-close:focus-visible {
+      background: rgba(232, 98, 26, 0.12);
+      color: var(--orange-sintonia);
+      border-color: rgba(232, 98, 26, 0.4);
+    }
+
+    .lead-modal-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange-sintonia);
+      background: rgba(232, 98, 26, 0.1);
+      border: 1px solid rgba(232, 98, 26, 0.25);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 14px;
+    }
+
+    .lead-modal-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--white);
+      font-size: 24px;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .lead-modal-sub {
+      color: var(--smoke);
+      font-size: 14px;
+      line-height: 1.55;
+      margin-bottom: 22px;
+    }
+
+    .lead-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .lead-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .lead-field label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--smoke);
+    }
+    .lead-field label .req { color: var(--orange-sintonia); margin-left: 3px; }
+
+    .lead-field input,
+    .lead-field select,
+    .lead-field textarea {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 15px;
+      transition: border-color 200ms, box-shadow 200ms, background 200ms;
+      width: 100%;
+    }
+    .lead-field input::placeholder,
+    .lead-field textarea::placeholder {
+      color: var(--muted-gray);
+    }
+    .lead-field input:focus,
+    .lead-field select:focus,
+    .lead-field textarea:focus {
+      border-color: var(--orange-sintonia);
+      box-shadow: 0 0 0 3px rgba(232, 98, 26, 0.15);
+      background: rgba(255, 255, 255, 0.06);
+      outline: none;
+    }
+    .lead-field textarea {
+      resize: vertical;
+      min-height: 68px;
+    }
+    .lead-field select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2395959C' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+    }
+    .lead-field option {
+      background: var(--deep-gray);
+      color: var(--white);
+    }
+
+    .lead-form-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 480px) {
+      .lead-form-row { grid-template-columns: 1fr 1fr; }
+    }
+
+    .lead-modal-submit {
+      margin-top: 6px;
+      background: var(--gradient-cta);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-full);
+      padding: 14px 24px;
+      min-height: 52px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: var(--shadow-glow);
+      transition: transform 200ms, box-shadow 200ms, filter 200ms;
+    }
+    .lead-modal-submit:hover:not(:disabled) {
+      transform: scale(1.01);
+      box-shadow: var(--shadow-glow-strong);
+      filter: brightness(1.08);
+    }
+    .lead-modal-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .lead-modal-note {
+      color: var(--muted-gray);
+      font-size: 12px;
+      text-align: center;
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    .lead-form-status {
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      line-height: 1.5;
+      display: none;
+    }
+    .lead-form-status.is-error {
+      display: block;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #fca5a5;
+    }
+    .lead-form-status.is-success {
+      display: block;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: #86efac;
+    }
+
+    body.modal-open { overflow: hidden; }
+
     /* Lista de redes sociais (CTA final) */
     .social-list {
       display: flex;
@@ -2473,10 +2790,10 @@
               <span class="price-amount-main">R$ 346/mês</span>
               <span class="price-amount-sub">ou R$ 997 à vista</span>
             </div>
-            <a class="btn btn-primary btn-block" href="#contato" data-whats-msg="Oi Paulo, vim pelo seu site. Quero saber mais sobre a turma em grupo de tráfego pago." aria-label="Garantir minha vaga — abre WhatsApp com mensagem sobre a turma em grupo">
+            <button type="button" class="btn btn-primary btn-block" data-open-modal="aula_grupo" aria-label="Garantir minha vaga — abre formulário da lista de espera">
               Garantir minha vaga
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </a>
+            </button>
           </article>
 
           <!-- Card 3 -->
@@ -2499,11 +2816,32 @@
               <span class="price-amount-main">R$ 445/mês</span>
               <span class="price-amount-sub">ou R$ 1.335 à vista</span>
             </div>
-            <a class="btn btn-secondary btn-block" href="#contato" data-whats-msg="Oi Paulo, vim pelo seu site. Quero saber mais sobre a aula particular de tráfego pago." aria-label="Quero conversar — abre WhatsApp com mensagem sobre a aula particular">
+            <button type="button" class="btn btn-secondary btn-block" data-open-modal="aula_particular" aria-label="Quero conversar sobre a Aula Particular — abre formulário">
               Quero conversar
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </a>
+            </button>
           </article>
+        </div>
+
+        <div class="consult-band">
+          <div class="consult-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 1 0 10 10"/>
+              <path d="M22 2 12 12"/>
+              <path d="M12 8v4l3 2"/>
+            </svg>
+          </div>
+          <div class="consult-copy">
+            <span class="consult-title">Consultoria avulsa por hora</span>
+            <span class="consult-desc">Precisa só de uma sessão pontual pra destravar algo específico da sua operação? Auditoria de conta, revisão de tracking, decisão de escalar — 1 hora, no formato Google Meet, com plano de ação no final.</span>
+          </div>
+          <div class="consult-price">
+            <span class="consult-price-value">R$ 397 <span>/hora</span></span>
+            <button type="button" class="btn btn-primary" data-open-modal="consultoria" aria-label="Quero uma consultoria — abre formulário">
+              Quero uma consultoria
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </button>
+          </div>
         </div>
 
         <p class="price-note">
@@ -2755,6 +3093,182 @@
     Falar no WhatsApp
   </a>
 
+  <!-- ============================================================
+       MODAIS DE QUALIFICAÇÃO (Grupo · Particular · Consultoria)
+       ============================================================ -->
+
+  <!-- Modal 1 · Aula em Grupo -->
+  <div class="lead-modal" id="modal-aula_grupo" role="dialog" aria-modal="true" aria-labelledby="modal-grupo-title" hidden>
+    <div class="lead-modal-backdrop" data-close></div>
+    <div class="lead-modal-card">
+      <button type="button" class="lead-modal-close" data-close aria-label="Fechar formulário">×</button>
+      <span class="lead-modal-tag">👥 Lista de espera</span>
+      <h2 class="lead-modal-title" id="modal-grupo-title">Aula em Grupo — próxima turma</h2>
+      <p class="lead-modal-sub">A turma é fechada com no máximo 10 alunos. Preencha rápido pra eu entender seu momento antes da nossa conversa no WhatsApp.</p>
+
+      <form class="lead-form" data-service="aula_grupo" novalidate>
+        <div class="lead-field">
+          <label for="grupo-nome">Nome completo <span class="req">*</span></label>
+          <input id="grupo-nome" name="nome" type="text" autocomplete="name" required minlength="2" placeholder="Como você se chama" />
+        </div>
+
+        <div class="lead-form-row">
+          <div class="lead-field">
+            <label for="grupo-whatsapp">WhatsApp <span class="req">*</span></label>
+            <input id="grupo-whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" required placeholder="(00) 00000-0000" />
+          </div>
+          <div class="lead-field">
+            <label for="grupo-email">E-mail <span class="req">*</span></label>
+            <input id="grupo-email" name="email" type="email" autocomplete="email" required placeholder="voce@email.com" />
+          </div>
+        </div>
+
+        <div class="lead-form-row">
+          <div class="lead-field">
+            <label for="grupo-cidade">Cidade / UF <span class="req">*</span></label>
+            <input id="grupo-cidade" name="cidade" type="text" required placeholder="Ex: São Paulo / SP" />
+          </div>
+          <div class="lead-field">
+            <label for="grupo-empresa">Empresa ou segmento <span class="req">*</span></label>
+            <input id="grupo-empresa" name="empresa" type="text" required placeholder="Ex: Clínica odontológica" />
+          </div>
+        </div>
+
+        <div class="lead-field">
+          <label for="grupo-faturamento">Faturamento mensal atual do negócio <span class="req">*</span></label>
+          <select id="grupo-faturamento" name="faturamento" required>
+            <option value="" disabled selected>Selecione uma faixa</option>
+            <option value="Menos de R$ 10 mil">Menos de R$ 10 mil</option>
+            <option value="R$ 10 - 50 mil">R$ 10 - 50 mil</option>
+            <option value="R$ 50 - 200 mil">R$ 50 - 200 mil</option>
+            <option value="Mais de R$ 200 mil">Mais de R$ 200 mil</option>
+            <option value="Ainda não faturo / negócio novo">Ainda não faturo / negócio novo</option>
+          </select>
+        </div>
+
+        <div class="lead-field">
+          <label for="grupo-objetivo">Por que quer entrar na turma? <span class="req">*</span></label>
+          <textarea id="grupo-objetivo" name="objetivo" required minlength="10" rows="3" placeholder="Ex: quero aprender a rodar minha própria mídia pra clínica sem depender de agência"></textarea>
+        </div>
+
+        <div class="lead-form-status" data-status role="alert"></div>
+
+        <button type="submit" class="lead-modal-submit">
+          <span data-label>Enviar e ir para o WhatsApp</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 22h-.004a9.87 9.87 0 0 1-5.031-1.378l-3.741.982.998-3.648a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 5.454.003 9.891 4.437 9.893 9.884-.003 5.45-4.437 9.884-9.888 9.884Z"/></svg>
+        </button>
+        <p class="lead-modal-note">Sem spam. Seus dados são usados só pra entender seu momento e responder no WhatsApp.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 2 · Aula Particular -->
+  <div class="lead-modal" id="modal-aula_particular" role="dialog" aria-modal="true" aria-labelledby="modal-particular-title" hidden>
+    <div class="lead-modal-backdrop" data-close></div>
+    <div class="lead-modal-card">
+      <button type="button" class="lead-modal-close" data-close aria-label="Fechar formulário">×</button>
+      <span class="lead-modal-tag">🎓 Mentoria 1:1</span>
+      <h2 class="lead-modal-title" id="modal-particular-title">Aula Particular — vamos entender seu momento</h2>
+      <p class="lead-modal-sub">Mentoria 1:1 exige compromisso mútuo. Preciso entender sua realidade antes de propor um plano. Depois disso a gente conversa no WhatsApp.</p>
+
+      <form class="lead-form" data-service="aula_particular" novalidate>
+        <div class="lead-field">
+          <label for="part-nome">Nome completo <span class="req">*</span></label>
+          <input id="part-nome" name="nome" type="text" autocomplete="name" required minlength="2" placeholder="Como você se chama" />
+        </div>
+
+        <div class="lead-form-row">
+          <div class="lead-field">
+            <label for="part-whatsapp">WhatsApp <span class="req">*</span></label>
+            <input id="part-whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" required placeholder="(00) 00000-0000" />
+          </div>
+          <div class="lead-field">
+            <label for="part-email">E-mail <span class="req">*</span></label>
+            <input id="part-email" name="email" type="email" autocomplete="email" required placeholder="voce@email.com" />
+          </div>
+        </div>
+
+        <div class="lead-form-row">
+          <div class="lead-field">
+            <label for="part-cidade">Cidade / UF <span class="req">*</span></label>
+            <input id="part-cidade" name="cidade" type="text" required placeholder="Ex: São Paulo / SP" />
+          </div>
+          <div class="lead-field">
+            <label for="part-empresa">Empresa ou segmento <span class="req">*</span></label>
+            <input id="part-empresa" name="empresa" type="text" required placeholder="Ex: E-commerce de suplementos" />
+          </div>
+        </div>
+
+        <div class="lead-field">
+          <label for="part-faturamento">Faturamento mensal atual do negócio <span class="req">*</span></label>
+          <select id="part-faturamento" name="faturamento" required>
+            <option value="" disabled selected>Selecione uma faixa</option>
+            <option value="Menos de R$ 10 mil">Menos de R$ 10 mil</option>
+            <option value="R$ 10 - 50 mil">R$ 10 - 50 mil</option>
+            <option value="R$ 50 - 200 mil">R$ 50 - 200 mil</option>
+            <option value="Mais de R$ 200 mil">Mais de R$ 200 mil</option>
+            <option value="Ainda não faturo / negócio novo">Ainda não faturo / negócio novo</option>
+          </select>
+        </div>
+
+        <div class="lead-field">
+          <label for="part-objetivo">Qual seu objetivo com a mentoria 1:1? <span class="req">*</span></label>
+          <textarea id="part-objetivo" name="objetivo" required minlength="10" rows="3" placeholder="Ex: quero aprender do zero rodar minha própria mídia com método"></textarea>
+        </div>
+
+        <div class="lead-form-status" data-status role="alert"></div>
+
+        <button type="submit" class="lead-modal-submit">
+          <span data-label>Enviar e ir para o WhatsApp</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 22h-.004a9.87 9.87 0 0 1-5.031-1.378l-3.741.982.998-3.648a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 5.454.003 9.891 4.437 9.893 9.884-.003 5.45-4.437 9.884-9.888 9.884Z"/></svg>
+        </button>
+        <p class="lead-modal-note">Sem spam. Seus dados são usados só pra entender seu momento e responder no WhatsApp.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 3 · Consultoria avulsa (formato mais leve) -->
+  <div class="lead-modal" id="modal-consultoria" role="dialog" aria-modal="true" aria-labelledby="modal-consult-title" hidden>
+    <div class="lead-modal-backdrop" data-close></div>
+    <div class="lead-modal-card">
+      <button type="button" class="lead-modal-close" data-close aria-label="Fechar formulário">×</button>
+      <span class="lead-modal-tag">🧠 Consultoria · R$ 397/hora</span>
+      <h2 class="lead-modal-title" id="modal-consult-title">Consultoria avulsa — 1 hora com plano de ação</h2>
+      <p class="lead-modal-sub">Descreve rápido o que você precisa destravar. Vou avaliar se consigo resolver em 1 hora e a gente combina horário pelo WhatsApp.</p>
+
+      <form class="lead-form" data-service="consultoria" novalidate>
+        <div class="lead-field">
+          <label for="cons-nome">Nome completo <span class="req">*</span></label>
+          <input id="cons-nome" name="nome" type="text" autocomplete="name" required minlength="2" placeholder="Como você se chama" />
+        </div>
+
+        <div class="lead-form-row">
+          <div class="lead-field">
+            <label for="cons-whatsapp">WhatsApp <span class="req">*</span></label>
+            <input id="cons-whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" required placeholder="(00) 00000-0000" />
+          </div>
+          <div class="lead-field">
+            <label for="cons-email">E-mail <span class="req">*</span></label>
+            <input id="cons-email" name="email" type="email" autocomplete="email" required placeholder="voce@email.com" />
+          </div>
+        </div>
+
+        <div class="lead-field">
+          <label for="cons-objetivo">O que você precisa destravar em 1 hora? <span class="req">*</span></label>
+          <textarea id="cons-objetivo" name="objetivo" required minlength="10" rows="4" placeholder="Ex: preciso auditar o pixel e a Conversion API da minha e-commerce. CPL subiu 60% em 2 semanas e não sei o que quebrou."></textarea>
+        </div>
+
+        <div class="lead-form-status" data-status role="alert"></div>
+
+        <button type="submit" class="lead-modal-submit">
+          <span data-label>Enviar e ir para o WhatsApp</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 22h-.004a9.87 9.87 0 0 1-5.031-1.378l-3.741.982.998-3.648a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 5.454.003 9.891 4.437 9.893 9.884-.003 5.45-4.437 9.884-9.888 9.884Z"/></svg>
+        </button>
+        <p class="lead-modal-note">Sem spam. Seus dados são usados só pra entender seu problema e responder no WhatsApp.</p>
+      </form>
+    </div>
+  </div>
+
   <script>
     (function () {
       'use strict';
@@ -2919,6 +3433,164 @@
               if (other !== item && other.open) other.open = false;
             });
           }
+        });
+      });
+
+      // ==========================================================
+      // MODAIS DE QUALIFICAÇÃO (Grupo / Particular / Consultoria)
+      // ==========================================================
+
+      // Captura params de atribuição da URL (utm_*, fbclid, gclid) 1× no load
+      var attribution = (function () {
+        var q = new URLSearchParams(window.location.search);
+        return {
+          utm: {
+            source:   q.get('utm_source')   || '',
+            medium:   q.get('utm_medium')   || '',
+            campaign: q.get('utm_campaign') || '',
+            term:     q.get('utm_term')     || '',
+            content:  q.get('utm_content')  || '',
+          },
+          fbclid:   q.get('fbclid') || '',
+          gclid:    q.get('gclid')  || '',
+          referrer: document.referrer || '',
+        };
+      })();
+
+      // Máscara de WhatsApp: (00) 00000-0000 / (00) 0000-0000
+      function maskWhats(v) {
+        var d = String(v || '').replace(/\D+/g, '').slice(0, 11);
+        if (d.length <= 2)      return d ? '(' + d : '';
+        if (d.length <= 6)      return '(' + d.slice(0, 2) + ') ' + d.slice(2);
+        if (d.length <= 10)     return '(' + d.slice(0, 2) + ') ' + d.slice(2, 6) + '-' + d.slice(6);
+        return '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
+      }
+      document.querySelectorAll('input[type="tel"][name="whatsapp"]').forEach(function (el) {
+        el.addEventListener('input', function () { el.value = maskWhats(el.value); });
+      });
+
+      // Estado do modal ativo (pra devolver foco pro botão que abriu)
+      var lastTrigger = null;
+
+      function openModal(service) {
+        var modal = document.getElementById('modal-' + service);
+        if (!modal) return;
+        modal.hidden = false;
+        document.body.classList.add('modal-open');
+        // reset status e habilita submit
+        var status = modal.querySelector('[data-status]');
+        if (status) { status.textContent = ''; status.className = 'lead-form-status'; }
+        var submit = modal.querySelector('.lead-modal-submit');
+        if (submit) { submit.disabled = false; }
+        // foco no 1º input após abrir
+        setTimeout(function () {
+          var first = modal.querySelector('input, select, textarea');
+          if (first) first.focus();
+        }, 60);
+      }
+
+      function closeModal(modal) {
+        if (!modal) return;
+        modal.hidden = true;
+        document.body.classList.remove('modal-open');
+        if (lastTrigger && typeof lastTrigger.focus === 'function') lastTrigger.focus();
+        lastTrigger = null;
+      }
+
+      // Abre modal quando clica em qualquer [data-open-modal]
+      document.querySelectorAll('[data-open-modal]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          lastTrigger = btn;
+          openModal(btn.getAttribute('data-open-modal'));
+        });
+      });
+
+      // Fecha modal (backdrop, botão × ou tecla Esc)
+      document.querySelectorAll('.lead-modal').forEach(function (modal) {
+        modal.addEventListener('click', function (e) {
+          if (e.target.hasAttribute && e.target.hasAttribute('data-close')) {
+            closeModal(modal);
+          }
+        });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        var open = document.querySelector('.lead-modal:not([hidden])');
+        if (open) closeModal(open);
+      });
+
+      // Submit dos formulários — POST pra /api/lead → redireciona pro WhatsApp
+      document.querySelectorAll('form.lead-form').forEach(function (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var modal  = form.closest('.lead-modal');
+          var status = form.querySelector('[data-status]');
+          var submit = form.querySelector('.lead-modal-submit');
+          var label  = submit.querySelector('[data-label]');
+
+          // Validação HTML5 nativa primeiro
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+
+          // Monta payload
+          var fd = new FormData(form);
+          var payload = {
+            service:     form.getAttribute('data-service'),
+            nome:        (fd.get('nome')        || '').toString().trim(),
+            whatsapp:    (fd.get('whatsapp')    || '').toString().trim(),
+            email:       (fd.get('email')       || '').toString().trim(),
+            cidade:      (fd.get('cidade')      || '').toString().trim(),
+            empresa:     (fd.get('empresa')     || '').toString().trim(),
+            faturamento: (fd.get('faturamento') || '').toString().trim(),
+            objetivo:    (fd.get('objetivo')    || '').toString().trim(),
+            utm:         attribution.utm,
+            fbclid:      attribution.fbclid,
+            gclid:       attribution.gclid,
+            referrer:    attribution.referrer,
+          };
+
+          // Loading state
+          submit.disabled = true;
+          var originalLabel = label.textContent;
+          label.textContent = 'Enviando…';
+          status.className = 'lead-form-status';
+          status.textContent = '';
+
+          fetch('/api/lead', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          })
+            .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
+            .then(function (res) {
+              if (!res.ok || !res.data.ok) {
+                var msg = 'Não conseguimos enviar agora. Tente de novo em alguns segundos ou fale direto no WhatsApp.';
+                if (res.data && res.data.errors && res.data.errors.length) {
+                  msg = 'Verifique os campos: ' + res.data.errors.join(', ');
+                }
+                status.className = 'lead-form-status is-error';
+                status.textContent = msg;
+                submit.disabled = false;
+                label.textContent = originalLabel;
+                return;
+              }
+              // Sucesso: feedback rápido e redireciona pro WhatsApp
+              status.className = 'lead-form-status is-success';
+              status.textContent = '✓ Enviado. Abrindo WhatsApp…';
+              label.textContent = 'Redirecionando…';
+              window.setTimeout(function () {
+                window.location.href = res.data.whatsapp_url;
+              }, 500);
+            })
+            .catch(function () {
+              status.className = 'lead-form-status is-error';
+              status.textContent = 'Erro de conexão. Tente novamente ou fale direto no WhatsApp.';
+              submit.disabled = false;
+              label.textContent = originalLabel;
+            });
         });
       });
     })();
