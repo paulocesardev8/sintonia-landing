@@ -1086,11 +1086,76 @@
     }
 
     .launch-icon {
-      width: 56px;
-      height: 56px;
+      width: 72px;
+      height: 72px;
       margin: 0 auto 16px;
-      color: var(--orange-bright);
-      filter: drop-shadow(0 0 20px rgba(255, 98, 8, 0.6));
+      display: block;
+      object-fit: contain;
+      filter: drop-shadow(0 0 24px rgba(255, 98, 8, 0.35));
+    }
+
+    .launch-bullets-wrap {
+      text-align: left;
+      margin: 20px 0 22px;
+    }
+
+    .launch-bullets-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted-gray);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .launch-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .launch-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--smoke);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .launch-bullets li::before {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      margin-top: 3px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E8621A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    .launch-cnpj {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 14px;
+      color: var(--muted-gray);
+      font-size: 11.5px;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .launch-cnpj svg {
+      flex-shrink: 0;
+      color: var(--muted-gray);
     }
 
     .launch-tag {
@@ -3347,11 +3412,7 @@
     <div class="launch-modal-card" id="launchCard">
       <button type="button" class="launch-modal-close" data-launch-close aria-label="Fechar aviso do evento">×</button>
 
-      <svg class="launch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M9 18h6"/>
-        <path d="M10 22h4"/>
-        <path d="M12 2a7 7 0 0 0-4 12.7c.7.5 1 1.1 1 1.9v.4h6v-.4c0-.8.3-1.4 1-1.9A7 7 0 0 0 12 2z"/>
-      </svg>
+      <img class="launch-icon" src="logo-sintonia-144.webp" alt="Sintonia Solutions" width="72" height="72" />
 
       <span class="launch-tag">Aula online · 07/09 · segunda · 09:30</span>
 
@@ -3359,7 +3420,18 @@
         Tráfego pago <em>com método</em>.
       </h2>
 
-      <p class="launch-subtitle">3h ao vivo · comigo · com bate-papo</p>
+      <p class="launch-subtitle">3h ao vivo · Google Meet · Q&amp;A durante toda a aula</p>
+
+      <div class="launch-bullets-wrap">
+        <span class="launch-bullets-label">Nas 3 horas ao vivo:</span>
+        <ul class="launch-bullets">
+          <li>Estrutura de campanha do zero</li>
+          <li>Definição de público e criativos</li>
+          <li>Como escalar sem quebrar</li>
+          <li>Análise de resultado que faz sentido</li>
+          <li>Perguntas ao vivo comigo</li>
+        </ul>
+      </div>
 
       <div class="launch-lot-box">
         <span class="launch-lot-name" id="launchLotName">LOTE 1</span>
@@ -3374,6 +3446,14 @@
       <a class="launch-cta" id="launchCta" href="#" target="_blank" rel="noopener">
         Quero garantir minha vaga →
       </a>
+
+      <p class="launch-cnpj">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        Pagamento processado por <strong style="color:var(--smoke);font-weight:500">Sintonia Sob Medida</strong> · CNPJ 23.185.816/0001-32
+      </p>
 
       <p class="launch-note">
         Pagamento único via Pix ou cartão. Após o pagamento, acesso imediato à comunidade no WhatsApp com todas as informações da aula.
