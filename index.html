@@ -1013,6 +1013,235 @@
 
     body.modal-open { overflow: hidden; }
 
+    /* ============================================================
+       LAUNCH POPUP — Aula ao vivo 07/09 (lançamento)
+       ============================================================ */
+    .launch-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 250;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      overflow-y: auto;
+    }
+    .launch-modal[hidden] { display: none; }
+
+    .launch-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 10, 11, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      cursor: pointer;
+    }
+
+    .launch-modal-card {
+      position: relative;
+      background:
+        radial-gradient(ellipse at top right, rgba(232, 98, 26, 0.18), transparent 60%),
+        linear-gradient(180deg, #1F2123 0%, #131416 100%);
+      border: 1px solid var(--orange-sintonia);
+      border-radius: var(--radius-2xl);
+      padding: 40px 28px 32px;
+      width: 100%;
+      max-width: 520px;
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 100px rgba(232, 98, 26, 0.2);
+      animation: launchModalIn 400ms cubic-bezier(0.16, 1, 0.3, 1);
+      text-align: center;
+    }
+
+    @keyframes launchModalIn {
+      from { opacity: 0; transform: translateY(30px) scale(0.96); }
+      to   { opacity: 1; transform: translateY(0)  scale(1); }
+    }
+
+    .launch-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--smoke);
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 200ms, color 200ms, border-color 200ms;
+    }
+    .launch-modal-close:hover,
+    .launch-modal-close:focus-visible {
+      background: rgba(232, 98, 26, 0.12);
+      color: var(--orange-sintonia);
+      border-color: rgba(232, 98, 26, 0.4);
+      outline: none;
+    }
+
+    .launch-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 16px;
+      color: var(--orange-bright);
+      filter: drop-shadow(0 0 20px rgba(255, 98, 8, 0.6));
+    }
+
+    .launch-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange-sintonia);
+      background: rgba(232, 98, 26, 0.1);
+      border: 1px solid rgba(232, 98, 26, 0.3);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 18px;
+    }
+
+    .launch-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 8px;
+      text-wrap: balance;
+    }
+    .launch-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, #C30147 0%, #E8621A 55%, #FF6208 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .launch-subtitle {
+      color: var(--smoke);
+      font-size: 15px;
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+
+    .launch-lot-box {
+      background: rgba(232, 98, 26, 0.08);
+      border: 1px solid rgba(232, 98, 26, 0.3);
+      border-radius: var(--radius-lg);
+      padding: 20px 22px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .launch-lot-name {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange-sintonia);
+    }
+
+    .launch-lot-price {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2.5rem, 4vw + 1rem, 3.5rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--white);
+    }
+    .launch-lot-price small {
+      font-size: 0.4em;
+      color: var(--muted-gray);
+      font-weight: 500;
+      letter-spacing: 0;
+      margin-left: 4px;
+    }
+
+    .launch-countdown {
+      color: var(--smoke);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    .launch-countdown strong {
+      color: var(--orange-bright);
+      font-family: var(--font-mono);
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+    }
+
+    .launch-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      min-height: 56px;
+      padding: 16px 24px;
+      background: var(--gradient-cta);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-glow);
+      transition: transform 200ms, box-shadow 200ms, filter 200ms;
+      cursor: pointer;
+      border: none;
+    }
+    .launch-cta:hover, .launch-cta:focus-visible {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-glow-strong);
+      filter: brightness(1.08);
+      outline: none;
+    }
+    .launch-cta[hidden] { display: none; }
+
+    .launch-note {
+      color: var(--muted-gray);
+      font-size: 12px;
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+    .launch-note a {
+      color: var(--smoke);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 200ms;
+    }
+    .launch-note a:hover { color: var(--orange-sintonia); }
+
+    .launch-expired {
+      display: none;
+    }
+    .launch-modal-card.is-expired .launch-lot-box,
+    .launch-modal-card.is-expired .launch-cta {
+      display: none;
+    }
+    .launch-modal-card.is-expired .launch-expired {
+      display: block;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 20px 22px;
+      color: var(--smoke);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
     /* Lista de redes sociais (CTA final) */
     .social-list {
       display: flex;
@@ -3111,6 +3340,48 @@
   </a>
 
   <!-- ============================================================
+       LAUNCH POPUP — Aula ao vivo 07/09 (aparece 3s após load, 1×/sessão)
+       ============================================================ -->
+  <div class="launch-modal" id="launchModal" role="dialog" aria-modal="true" aria-labelledby="launchTitle" hidden>
+    <div class="launch-modal-backdrop" data-launch-close></div>
+    <div class="launch-modal-card" id="launchCard">
+      <button type="button" class="launch-modal-close" data-launch-close aria-label="Fechar aviso do evento">×</button>
+
+      <svg class="launch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 18h6"/>
+        <path d="M10 22h4"/>
+        <path d="M12 2a7 7 0 0 0-4 12.7c.7.5 1 1.1 1 1.9v.4h6v-.4c0-.8.3-1.4 1-1.9A7 7 0 0 0 12 2z"/>
+      </svg>
+
+      <span class="launch-tag">Aula online · 07/09 · segunda · 09:30</span>
+
+      <h2 class="launch-title" id="launchTitle">
+        Tráfego pago <em>com método</em>.
+      </h2>
+
+      <p class="launch-subtitle">3h ao vivo · comigo · com bate-papo</p>
+
+      <div class="launch-lot-box">
+        <span class="launch-lot-name" id="launchLotName">LOTE 1</span>
+        <span class="launch-lot-price" id="launchLotPrice">R$ 27<small>à vista</small></span>
+        <span class="launch-countdown" id="launchCountdown">Encerra em <strong>—</strong></span>
+      </div>
+
+      <div class="launch-expired" role="status">
+        <strong>Vagas encerradas.</strong> A próxima edição sai em breve — me acompanha no <a href="https://www.instagram.com/trafego.paulocesar/" target="_blank" rel="noopener">Instagram</a> pra saber a data.
+      </div>
+
+      <a class="launch-cta" id="launchCta" href="#" target="_blank" rel="noopener">
+        Quero garantir minha vaga →
+      </a>
+
+      <p class="launch-note">
+        Pagamento único via Pix ou cartão. Após o pagamento, acesso imediato à comunidade no WhatsApp com todas as informações da aula.
+      </p>
+    </div>
+  </div>
+
+  <!-- ============================================================
        MODAIS DE QUALIFICAÇÃO (Grupo · Particular · Consultoria)
        ============================================================ -->
 
@@ -3844,6 +4115,195 @@
             });
         });
       });
+
+      // ==========================================================
+      // LAUNCH POPUP — Aula ao vivo 07/09 · lotes escalonados
+      // ==========================================================
+      var LAUNCH_CONFIG = {
+        eventDateISO: '2026-09-07T09:30:00-03:00', // 07/09/2026 09:30 BRT
+        eventLabel:   '07/09 · segunda · 09:30',
+        // Após 07/09 09:30 + duração (3h), o pop-up some totalmente
+        eventEndISO:  '2026-09-07T12:30:00-03:00',
+        // Lotes em ordem cronológica — cada um vale ATÉ endsAt
+        lots: [
+          {
+            name:  'LOTE 1',
+            price: 27,
+            priceLabel: 'R$ 27',
+            endsAtISO: '2026-08-22T23:59:59-03:00',
+            url: 'https://checkout.infinitepay.io/sintoniasobmedida/OeYiqo98im',
+          },
+          {
+            name:  'LOTE 2',
+            price: 47,
+            priceLabel: 'R$ 47',
+            endsAtISO: '2026-08-29T23:59:59-03:00',
+            url: 'https://checkout.infinitepay.io/sintoniasobmedida/8bklVjduMo',
+          },
+          {
+            name:  'LOTE 3',
+            price: 67,
+            priceLabel: 'R$ 67',
+            endsAtISO: '2026-09-06T23:59:59-03:00',
+            url: 'https://checkout.infinitepay.io/sintoniasobmedida/bOPhG1lrhc',
+          },
+        ],
+      };
+
+      // Retorna o lote ativo agora (ou null se todos expiraram)
+      function getActiveLot() {
+        var now = Date.now();
+        for (var i = 0; i < LAUNCH_CONFIG.lots.length; i++) {
+          var lot = LAUNCH_CONFIG.lots[i];
+          if (now <= new Date(lot.endsAtISO).getTime()) return lot;
+        }
+        return null;
+      }
+
+      // Formata milissegundos em "Xd YYh" ou "Xh YYmin" ou "XXmin YYs"
+      function formatCountdown(ms) {
+        if (ms <= 0) return 'encerrado';
+        var s = Math.floor(ms / 1000);
+        var d = Math.floor(s / 86400);
+        var h = Math.floor((s % 86400) / 3600);
+        var m = Math.floor((s % 3600) / 60);
+        var sec = s % 60;
+        if (d >= 1)  return d + 'd ' + String(h).padStart(2, '0') + 'h';
+        if (h >= 1)  return h + 'h ' + String(m).padStart(2, '0') + 'min';
+        if (m >= 1)  return m + 'min ' + String(sec).padStart(2, '0') + 's';
+        return sec + 's';
+      }
+
+      var launchModal    = document.getElementById('launchModal');
+      var launchCard     = document.getElementById('launchCard');
+      var launchLotName  = document.getElementById('launchLotName');
+      var launchLotPrice = document.getElementById('launchLotPrice');
+      var launchCountdown= document.getElementById('launchCountdown');
+      var launchCta      = document.getElementById('launchCta');
+      var launchTickerId = null;
+
+      // Renderiza os campos dinâmicos do pop-up (chamado ao abrir + a cada 1s)
+      function renderLaunch() {
+        if (!launchModal) return;
+
+        // Evento já aconteceu → não mostrar mais o pop-up
+        if (Date.now() > new Date(LAUNCH_CONFIG.eventEndISO).getTime()) {
+          launchCard.classList.add('is-expired');
+          if (launchCta) launchCta.hidden = true;
+          if (launchCountdown) launchCountdown.textContent = 'Evento já realizado.';
+          return;
+        }
+
+        var lot = getActiveLot();
+
+        // Todos os lotes expiraram mas evento ainda não aconteceu
+        if (!lot) {
+          launchCard.classList.add('is-expired');
+          if (launchCta) launchCta.hidden = true;
+          return;
+        }
+
+        // Lote ativo — atualiza UI
+        launchCard.classList.remove('is-expired');
+        if (launchLotName)  launchLotName.textContent = lot.name;
+        if (launchLotPrice) launchLotPrice.innerHTML = lot.priceLabel + '<small>à vista</small>';
+        if (launchCta) {
+          launchCta.href = lot.url;
+          launchCta.hidden = false;
+          launchCta.dataset.lotName  = lot.name;
+          launchCta.dataset.lotPrice = String(lot.price);
+        }
+
+        var remainingMs = new Date(lot.endsAtISO).getTime() - Date.now();
+        if (launchCountdown) {
+          launchCountdown.innerHTML = 'Encerra em <strong>' + formatCountdown(remainingMs) + '</strong>';
+        }
+      }
+
+      function openLaunchModal() {
+        if (!launchModal) return;
+        // Não abre se o evento já passou
+        if (Date.now() > new Date(LAUNCH_CONFIG.eventEndISO).getTime()) return;
+
+        renderLaunch();
+        launchModal.hidden = false;
+        document.body.classList.add('modal-open');
+
+        // Meta Pixel: ViewContent do evento com valor do lote atual
+        var lot = getActiveLot();
+        if (typeof window.fbq === 'function' && lot) {
+          try {
+            window.fbq('track', 'ViewContent', {
+              content_name: 'Aula 07/09 — Tráfego pago com método',
+              content_category: 'evento-online',
+              content_ids: [lot.name],
+              value: lot.price,
+              currency: 'BRL',
+            });
+          } catch (e) { /* silent */ }
+        }
+
+        // Ticker do countdown — atualiza a cada segundo
+        if (launchTickerId) clearInterval(launchTickerId);
+        launchTickerId = setInterval(renderLaunch, 1000);
+      }
+
+      function closeLaunchModal() {
+        if (!launchModal) return;
+        launchModal.hidden = true;
+        document.body.classList.remove('modal-open');
+        if (launchTickerId) { clearInterval(launchTickerId); launchTickerId = null; }
+        // Marca como já visto nesta sessão (não volta a abrir sozinho)
+        try { sessionStorage.setItem('sintonia_launch_seen', '1'); } catch (e) {}
+      }
+
+      // Fechar (× ou backdrop)
+      if (launchModal) {
+        launchModal.addEventListener('click', function (e) {
+          if (e.target.hasAttribute && e.target.hasAttribute('data-launch-close')) {
+            closeLaunchModal();
+          }
+        });
+      }
+
+      // Fecha com Esc
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && launchModal && !launchModal.hidden) closeLaunchModal();
+      });
+
+      // CTA: dispara InitiateCheckout no Meta antes de deixar o browser navegar
+      if (launchCta) {
+        launchCta.addEventListener('click', function () {
+          var lot = getActiveLot();
+          if (typeof window.fbq === 'function' && lot) {
+            try {
+              window.fbq('track', 'InitiateCheckout', {
+                content_name: 'Aula 07/09 — ' + lot.name,
+                content_category: 'evento-online',
+                content_ids: [lot.name],
+                value: lot.price,
+                currency: 'BRL',
+                num_items: 1,
+              });
+            } catch (e) { /* silent */ }
+          }
+          // Não previne default — o link segue pro Infinitepay em nova aba (target=_blank)
+          try { sessionStorage.setItem('sintonia_launch_seen', '1'); } catch (e) {}
+        });
+      }
+
+      // Auto-open 3.5s após load — só 1× por sessão
+      (function autoOpenLaunch() {
+        if (!launchModal) return;
+        var seen = false;
+        try { seen = sessionStorage.getItem('sintonia_launch_seen') === '1'; } catch (e) {}
+        if (seen) return;
+
+        // Se evento já passou, nem abre
+        if (Date.now() > new Date(LAUNCH_CONFIG.eventEndISO).getTime()) return;
+
+        window.setTimeout(openLaunchModal, 3500);
+      })();
     })();
   </script>
 </body>
