@@ -31,12 +31,15 @@ const SERVICE_LABELS = {
   consultoria:     { titulo: 'Consultoria Avulsa',  icone: '🧠', wa_ctx: 'a consultoria avulsa por hora' },
 };
 
-// Normaliza WhatsApp pra +55DDDNUMERO (E.164) — só dígitos, força código Brasil
+// Normaliza WhatsApp pra E.164. Sem código de país: 10 dígitos = EUA; 11 dígitos = EUA ou Brasil
 function normalizeWhats(raw) {
   const digits = String(raw || '').replace(/\D+/g, '');
   if (!digits) return '';
   if (digits.startsWith('55') && digits.length >= 12) return '+' + digits;
-  if (digits.length === 10 || digits.length === 11) return '+55' + digits;
+  if (String(raw).trim().startsWith('+')) return '+' + digits;
+  if (digits.length === 10) return '+1' + digits;
+  // 1 + area code americano (o 2º dígito nunca é 9) ou celular BR com DDD
+  if (digits.length === 11) return digits[0] === '1' && digits[2] !== '9' ? '+' + digits : '+55' + digits;
   return '+' + digits;
 }
 
@@ -77,7 +80,7 @@ module.exports = async function handler(req, res) {
   if (!SERVICE_LABELS[service])       errors.push('service inválido');
   if (!nome || String(nome).trim().length < 2)       errors.push('nome obrigatório');
   const whats = normalizeWhats(whatsapp);
-  if (!whats || whats.length < 13)    errors.push('whatsapp inválido');
+  if (!whats || whats.length < 12)    errors.push('whatsapp inválido');
   if (!isEmail(email))                errors.push('email inválido');
   // cidade / empresa / faturamento / objetivo: obrigatórios para os pacotes,
   // opcionais na consultoria pontual (formato mais leve)
